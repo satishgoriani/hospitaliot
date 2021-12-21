@@ -1,0 +1,361 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateSensor {
+  onCreateSensor {
+    id
+    serialnumber
+    remarks
+    companyID
+    lastreadtemp
+    lastreceivedon
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateSensor {
+  onUpdateSensor {
+    id
+    serialnumber
+    remarks
+    companyID
+    lastreadtemp
+    lastreceivedon
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteSensor {
+  onDeleteSensor {
+    id
+    serialnumber
+    remarks
+    companyID
+    lastreadtemp
+    lastreceivedon
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateUsermenu {
+  onCreateUsermenu {
+    id
+    name
+    menucode
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateUsermenu {
+  onUpdateUsermenu {
+    id
+    name
+    menucode
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteUsermenu {
+  onDeleteUsermenu {
+    id
+    name
+    menucode
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateUser {
+  onCreateUser {
+    id
+    firstname
+    lastname
+    mobileno
+    username
+    userpass
+    companyID
+    assignedmenuoptions
+    menunamestring
+    sectionID
+    sectionname
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateUser {
+  onUpdateUser {
+    id
+    firstname
+    lastname
+    mobileno
+    username
+    userpass
+    companyID
+    assignedmenuoptions
+    menunamestring
+    sectionID
+    sectionname
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteUser {
+  onDeleteUser {
+    id
+    firstname
+    lastname
+    mobileno
+    username
+    userpass
+    companyID
+    assignedmenuoptions
+    menunamestring
+    sectionID
+    sectionname
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateCompany {
+  onCreateCompany {
+    id
+    name
+    registeredemail
+    adminpass
+    domainname
+    CompanyUsers {
+      items {
+        id
+        firstname
+        lastname
+        mobileno
+        username
+        userpass
+        companyID
+        assignedmenuoptions
+        menunamestring
+        sectionID
+        sectionname
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    CompanySections {
+      items {
+        id
+        name
+        companyID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    highsecpin
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateCompany {
+  onUpdateCompany {
+    id
+    name
+    registeredemail
+    adminpass
+    domainname
+    CompanyUsers {
+      items {
+        id
+        firstname
+        lastname
+        mobileno
+        username
+        userpass
+        companyID
+        assignedmenuoptions
+        menunamestring
+        sectionID
+        sectionname
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    CompanySections {
+      items {
+        id
+        name
+        companyID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    highsecpin
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteCompany {
+  onDeleteCompany {
+    id
+    name
+    registeredemail
+    adminpass
+    domainname
+    CompanyUsers {
+      items {
+        id
+        firstname
+        lastname
+        mobileno
+        username
+        userpass
+        companyID
+        assignedmenuoptions
+        menunamestring
+        sectionID
+        sectionname
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    CompanySections {
+      items {
+        id
+        name
+        companyID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    highsecpin
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateRoom {
+  onCreateRoom {
+    id
+    name
+    sectionID
+    temperaturemin
+    temperaturemax
+    currentavgtem
+    numfloors
+    sectionname
+    sensors
+    sensorsasstring
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateRoom {
+  onUpdateRoom {
+    id
+    name
+    sectionID
+    temperaturemin
+    temperaturemax
+    currentavgtem
+    numfloors
+    sectionname
+    sensors
+    sensorsasstring
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteRoom {
+  onDeleteRoom {
+    id
+    name
+    sectionID
+    temperaturemin
+    temperaturemax
+    currentavgtem
+    numfloors
+    sectionname
+    sensors
+    sensorsasstring
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateSection {
+  onCreateSection {
+    id
+    name
+    SectionRooms {
+      items {
+        id
+        name
+        sectionID
+        temperaturemin
+        temperaturemax
+        currentavgtem
+        numfloors
+        sectionname
+        sensors
+        sensorsasstring
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    companyID
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateSection {
+  onUpdateSection {
+    id
+    name
+    SectionRooms {
+      items {
+        id
+        name
+        sectionID
+        temperaturemin
+        temperaturemax
+        currentavgtem
+        numfloors
+        sectionname
+        sensors
+        sensorsasstring
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    companyID
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteSection {
+  onDeleteSection {
+    id
+    name
+    SectionRooms {
+      items {
+        id
+        name
+        sectionID
+        temperaturemin
+        temperaturemax
+        currentavgtem
+        numfloors
+        sectionname
+        sensors
+        sensorsasstring
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    companyID
+    createdAt
+    updatedAt
+  }
+}

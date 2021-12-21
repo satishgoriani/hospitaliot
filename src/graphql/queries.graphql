@@ -1,0 +1,280 @@
+# this is an auto generated file. This will be overwritten
+query GetSensor($id: ID!) {
+  getSensor(id: $id) {
+    id
+    serialnumber
+    remarks
+    companyID
+    lastreadtemp
+    lastreceivedon
+    createdAt
+    updatedAt
+  }
+}
+query ListSensors(
+  $filter: ModelSensorFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listSensors(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      serialnumber
+      remarks
+      companyID
+      lastreadtemp
+      lastreceivedon
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetUsermenu($id: ID!) {
+  getUsermenu(id: $id) {
+    id
+    name
+    menucode
+    createdAt
+    updatedAt
+  }
+}
+query ListUsermenus(
+  $filter: ModelUsermenuFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listUsermenus(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      menucode
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetUser($id: ID!) {
+  getUser(id: $id) {
+    id
+    firstname
+    lastname
+    mobileno
+    username
+    userpass
+    companyID
+    assignedmenuoptions
+    menunamestring
+    sectionID
+    sectionname
+    createdAt
+    updatedAt
+  }
+}
+query ListUsers(
+  $filter: ModelUserFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      firstname
+      lastname
+      mobileno
+      username
+      userpass
+      companyID
+      assignedmenuoptions
+      menunamestring
+      sectionID
+      sectionname
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetCompany($id: ID!) {
+  getCompany(id: $id) {
+    id
+    name
+    registeredemail
+    adminpass
+    domainname
+    CompanyUsers {
+      items {
+        id
+        firstname
+        lastname
+        mobileno
+        username
+        userpass
+        companyID
+        assignedmenuoptions
+        menunamestring
+        sectionID
+        sectionname
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    CompanySections {
+      items {
+        id
+        name
+        companyID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    highsecpin
+    createdAt
+    updatedAt
+  }
+}
+query ListCompanys(
+  $filter: ModelCompanyFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listCompanys(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      registeredemail
+      adminpass
+      domainname
+      CompanyUsers {
+        nextToken
+      }
+      CompanySections {
+        nextToken
+      }
+      highsecpin
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetRoom($id: ID!) {
+  getRoom(id: $id) {
+    id
+    name
+    sectionID
+    temperaturemin
+    temperaturemax
+    currentavgtem
+    numfloors
+    sectionname
+    sensors
+    sensorsasstring
+    createdAt
+    updatedAt
+  }
+}
+query ListRooms(
+  $filter: ModelRoomFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listRooms(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      sectionID
+      temperaturemin
+      temperaturemax
+      currentavgtem
+      numfloors
+      sectionname
+      sensors
+      sensorsasstring
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetSection($id: ID!) {
+  getSection(id: $id) {
+    id
+    name
+    SectionRooms {
+      items {
+        id
+        name
+        sectionID
+        temperaturemin
+        temperaturemax
+        currentavgtem
+        numfloors
+        sectionname
+        sensors
+        sensorsasstring
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    companyID
+    createdAt
+    updatedAt
+  }
+}
+query ListSections(
+  $filter: ModelSectionFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listSections(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      SectionRooms {
+        nextToken
+      }
+      companyID
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query CompanyByEmail(
+  $registeredemail: String
+  $sortDirection: ModelSortDirection
+  $filter: ModelCompanyFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  companyByEmail(
+    registeredemail: $registeredemail
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      name
+      registeredemail
+      adminpass
+      domainname
+      CompanyUsers {
+        nextToken
+      }
+      CompanySections {
+        nextToken
+      }
+      highsecpin
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}

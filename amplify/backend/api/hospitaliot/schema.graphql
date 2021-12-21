@@ -1,0 +1,60 @@
+type Sensor @model @auth(rules: [{allow: public}]) @key(name: "byCompany", fields: ["companyID"]) {
+  id: ID!
+  serialnumber: String!
+  remarks: String
+  companyID : ID
+  lastreadtemp: Float
+  lastreceivedon: AWSTimestamp
+}
+
+type Usermenu @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  menucode: String
+}
+
+type User @model @auth(rules: [{allow: public}]) @key(name: "byCompany", fields: ["companyID"]) {
+  id: ID!
+  firstname: String!
+  lastname: String
+  mobileno: String!
+  username: String
+  userpass: String
+  companyID: ID
+  assignedmenuoptions: [String]
+  menunamestring : String
+  sectionID: String!
+  sectionname : String
+}
+
+type Company @model @auth(rules: [{allow: public}]) @key(name: "byEmail", fields: ["registeredemail"], queryField: "companyByEmail") {
+  id: ID!
+  name: String!
+  registeredemail: String
+  adminpass: String
+  domainname: String
+  CompanyUsers: [User] @connection(keyName: "byCompany", fields: ["id"])
+  CompanySections: [Section] @connection(keyName: "byCompany", fields: ["id"])
+  highsecpin: String
+}
+
+type Room @model @auth(rules: [{allow: public}]) @key(name: "bySection", fields: ["sectionID"])  {
+  id: ID!
+  name: String!
+  sectionID: ID
+  temperaturemin: Float
+  temperaturemax: Float
+  currentavgtem: Float
+  numfloors: Int
+  sectionname : String
+  sensors : [String]
+  sensorsasstring : String 
+}
+
+type Section @model @auth(rules: [{allow: public}]) @key(name: "byCompany", fields: ["companyID"]) {
+  id: ID!
+  name: String!
+  SectionRooms: [Room] @connection(keyName: "bySection", fields: ["id"])
+  companyID: ID
+}
+ 

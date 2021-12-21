@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-hospitaliot-dev-204217-authRole",
+      "UnauthRoleArn": "arn:aws:iam::939561824241:role/amplify-hospitaliot-dev-204217-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::939561824241:role/amplify-hospitaliot-dev-204217-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-hospitaliot-dev-204217-deployment",
+      "UnauthRoleName": "amplify-hospitaliot-dev-204217-unauthRole",
+      "StackName": "amplify-hospitaliot-dev-204217",
+      "StackId": "arn:aws:cloudformation:ap-south-1:939561824241:stack/amplify-hospitaliot-dev-204217/f7ec5490-627c-11ec-9d90-0a10b4004932",
+      "AmplifyAppId": "dr7vagdtr1l6k"
+    }
+  }
+}

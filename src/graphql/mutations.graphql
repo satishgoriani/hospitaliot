@@ -1,0 +1,415 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateSensor(
+  $input: CreateSensorInput!
+  $condition: ModelSensorConditionInput
+) {
+  createSensor(input: $input, condition: $condition) {
+    id
+    serialnumber
+    remarks
+    companyID
+    lastreadtemp
+    lastreceivedon
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateSensor(
+  $input: UpdateSensorInput!
+  $condition: ModelSensorConditionInput
+) {
+  updateSensor(input: $input, condition: $condition) {
+    id
+    serialnumber
+    remarks
+    companyID
+    lastreadtemp
+    lastreceivedon
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteSensor(
+  $input: DeleteSensorInput!
+  $condition: ModelSensorConditionInput
+) {
+  deleteSensor(input: $input, condition: $condition) {
+    id
+    serialnumber
+    remarks
+    companyID
+    lastreadtemp
+    lastreceivedon
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateUsermenu(
+  $input: CreateUsermenuInput!
+  $condition: ModelUsermenuConditionInput
+) {
+  createUsermenu(input: $input, condition: $condition) {
+    id
+    name
+    menucode
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateUsermenu(
+  $input: UpdateUsermenuInput!
+  $condition: ModelUsermenuConditionInput
+) {
+  updateUsermenu(input: $input, condition: $condition) {
+    id
+    name
+    menucode
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteUsermenu(
+  $input: DeleteUsermenuInput!
+  $condition: ModelUsermenuConditionInput
+) {
+  deleteUsermenu(input: $input, condition: $condition) {
+    id
+    name
+    menucode
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateUser(
+  $input: CreateUserInput!
+  $condition: ModelUserConditionInput
+) {
+  createUser(input: $input, condition: $condition) {
+    id
+    firstname
+    lastname
+    mobileno
+    username
+    userpass
+    companyID
+    assignedmenuoptions
+    menunamestring
+    sectionID
+    sectionname
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateUser(
+  $input: UpdateUserInput!
+  $condition: ModelUserConditionInput
+) {
+  updateUser(input: $input, condition: $condition) {
+    id
+    firstname
+    lastname
+    mobileno
+    username
+    userpass
+    companyID
+    assignedmenuoptions
+    menunamestring
+    sectionID
+    sectionname
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteUser(
+  $input: DeleteUserInput!
+  $condition: ModelUserConditionInput
+) {
+  deleteUser(input: $input, condition: $condition) {
+    id
+    firstname
+    lastname
+    mobileno
+    username
+    userpass
+    companyID
+    assignedmenuoptions
+    menunamestring
+    sectionID
+    sectionname
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateCompany(
+  $input: CreateCompanyInput!
+  $condition: ModelCompanyConditionInput
+) {
+  createCompany(input: $input, condition: $condition) {
+    id
+    name
+    registeredemail
+    adminpass
+    domainname
+    CompanyUsers {
+      items {
+        id
+        firstname
+        lastname
+        mobileno
+        username
+        userpass
+        companyID
+        assignedmenuoptions
+        menunamestring
+        sectionID
+        sectionname
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    CompanySections {
+      items {
+        id
+        name
+        companyID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    highsecpin
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateCompany(
+  $input: UpdateCompanyInput!
+  $condition: ModelCompanyConditionInput
+) {
+  updateCompany(input: $input, condition: $condition) {
+    id
+    name
+    registeredemail
+    adminpass
+    domainname
+    CompanyUsers {
+      items {
+        id
+        firstname
+        lastname
+        mobileno
+        username
+        userpass
+        companyID
+        assignedmenuoptions
+        menunamestring
+        sectionID
+        sectionname
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    CompanySections {
+      items {
+        id
+        name
+        companyID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    highsecpin
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteCompany(
+  $input: DeleteCompanyInput!
+  $condition: ModelCompanyConditionInput
+) {
+  deleteCompany(input: $input, condition: $condition) {
+    id
+    name
+    registeredemail
+    adminpass
+    domainname
+    CompanyUsers {
+      items {
+        id
+        firstname
+        lastname
+        mobileno
+        username
+        userpass
+        companyID
+        assignedmenuoptions
+        menunamestring
+        sectionID
+        sectionname
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    CompanySections {
+      items {
+        id
+        name
+        companyID
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    highsecpin
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateRoom(
+  $input: CreateRoomInput!
+  $condition: ModelRoomConditionInput
+) {
+  createRoom(input: $input, condition: $condition) {
+    id
+    name
+    sectionID
+    temperaturemin
+    temperaturemax
+    currentavgtem
+    numfloors
+    sectionname
+    sensors
+    sensorsasstring
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateRoom(
+  $input: UpdateRoomInput!
+  $condition: ModelRoomConditionInput
+) {
+  updateRoom(input: $input, condition: $condition) {
+    id
+    name
+    sectionID
+    temperaturemin
+    temperaturemax
+    currentavgtem
+    numfloors
+    sectionname
+    sensors
+    sensorsasstring
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteRoom(
+  $input: DeleteRoomInput!
+  $condition: ModelRoomConditionInput
+) {
+  deleteRoom(input: $input, condition: $condition) {
+    id
+    name
+    sectionID
+    temperaturemin
+    temperaturemax
+    currentavgtem
+    numfloors
+    sectionname
+    sensors
+    sensorsasstring
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateSection(
+  $input: CreateSectionInput!
+  $condition: ModelSectionConditionInput
+) {
+  createSection(input: $input, condition: $condition) {
+    id
+    name
+    SectionRooms {
+      items {
+        id
+        name
+        sectionID
+        temperaturemin
+        temperaturemax
+        currentavgtem
+        numfloors
+        sectionname
+        sensors
+        sensorsasstring
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    companyID
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateSection(
+  $input: UpdateSectionInput!
+  $condition: ModelSectionConditionInput
+) {
+  updateSection(input: $input, condition: $condition) {
+    id
+    name
+    SectionRooms {
+      items {
+        id
+        name
+        sectionID
+        temperaturemin
+        temperaturemax
+        currentavgtem
+        numfloors
+        sectionname
+        sensors
+        sensorsasstring
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    companyID
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteSection(
+  $input: DeleteSectionInput!
+  $condition: ModelSectionConditionInput
+) {
+  deleteSection(input: $input, condition: $condition) {
+    id
+    name
+    SectionRooms {
+      items {
+        id
+        name
+        sectionID
+        temperaturemin
+        temperaturemax
+        currentavgtem
+        numfloors
+        sectionname
+        sensors
+        sensorsasstring
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    companyID
+    createdAt
+    updatedAt
+  }
+}
