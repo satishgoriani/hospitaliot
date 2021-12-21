@@ -1,0 +1,7 @@
+{
+  "name": "hospitaliot",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
