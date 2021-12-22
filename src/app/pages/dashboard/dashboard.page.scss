@@ -1,0 +1,76 @@
+.fab-not {
+    top: 0px;
+    ion-fab-button {
+        --box-shadow: none;
+    }
+}
+
+.fab-add {
+    ion-fab-button {
+        margin: 10px;
+    }
+    ion-icon {
+        --ionicon-stroke-width: 64px;
+    }
+}
+
+.selectfilter{
+    border: none !important;;
+    padding: 0px !important;
+    margin: 0px !important;
+  }
+
+.tempbadge {
+    font-size: medium;
+    padding: 5px 15px 5px 15px;
+    border-radius: 20px;
+}
+
+.humiditybadge {
+    font-size: medium;
+    padding: 5px 15px 5px 15px;
+    border-radius: 20px;
+}
+
+.temp-col {
+    border-right: 1px solid var(--ion-text-color);
+    height: 100%;
+    padding-right:8px ;
+}
+.humidity-col{
+    padding-left:8px ;
+}
+
+.normaltemp {
+    background: #89ba65;
+}
+
+.lowtemp {
+    background: #659fc7;
+}
+
+.hightemp {
+    background: #f0888b;
+}
+
+.card-det {
+    border-radius: 10px;
+    box-shadow: none;
+    margin: 8px;
+    ion-card-content {
+        padding: 10px 0px;
+    }
+    .temp-item{
+        font-size: .6rem;
+        ion-label{
+            margin: 0px;
+            text-align: center;
+            padding:10px;
+        }
+    }
+    .sensorstatus{
+        font-size: .7rem;
+        margin-top:8px;
+
+    }
+}

@@ -1,0 +1,39 @@
+<ion-header class="ion-no-border">
+  <app-holatoolbar title="Sectors"></app-holatoolbar>
+</ion-header>
+
+<ion-content class="ion-content-grey">
+
+  <ion-searchbar class="crudsearchbar ion-no-padding" [(ngModel)]="strsearch"></ion-searchbar>
+
+  <div *ngIf="dataService.sectionlist.length == 0" class="myphoto" style="top: 50%; position: absolute; left: 50%;transform: translate(-50%, -50%);">
+    <ion-text color="light">click '+' to add Sectors</ion-text>
+  </div>
+
+  <div *ngIf="dataService.sectionlist && dataService.sectionlist.length > 0">
+    <ion-item lines="none" class="data-list" *ngFor="let item of dataService.sectionlist | filter:strsearch">
+      <ion-row class="Wid100">
+        <ion-col size="1">
+          <ion-icon class="listiconstyle" name="grid-outline" (click)="editSector(item)"></ion-icon>
+        </ion-col>
+        <ion-col (click)="editSector(item)" size="10">
+          <ion-label class="field-1">{{item.name}}</ion-label>
+        </ion-col>
+        <ion-col size="1">
+          <ion-icon class="trashIcon" name="trash-outline" color="danger" (click)="confirmDelete(item)"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </div>
+  
+
+  <div style="min-height: 80px !important;">&nbsp;</div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addSector()">
+      <ion-icon name="add">
+      </ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

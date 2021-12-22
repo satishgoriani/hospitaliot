@@ -1,0 +1,79 @@
+<ion-header class="ion-no-border">
+  <app-holatoolbar flat="true" title="{{operation}} Room"></app-holatoolbar>
+</ion-header>
+<ion-content>
+  <div>
+
+    <ion-item>
+      <ion-label position="floating">operation Theater No</ion-label>
+      <ion-input required=true placeholder="001" [(ngModel)]="roomobj.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Select Section</ion-label>
+      <ion-select mode="md" [(ngModel)]="roomobj.sectionID">
+        <ion-select-option *ngFor="let item of dataService.sectionlist;" value="{{item.id}}">{{item.name}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label>Building Name</ion-label>
+      <ion-input type="text"></ion-input>
+
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Floor</ion-label>
+      <ion-input type="text" [(ngModel)]="roomobj.numfloors"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Min Temperature (°C)</ion-label>
+      <ion-input required=true type="number" [(ngModel)]="roomobj.temperaturemin"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Max Temperature (°C)</ion-label>
+      <ion-input required=true type="number" [(ngModel)]="roomobj.temperaturemax"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Min Humidity (%)</ion-label>
+      <ion-input type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Max Humidity (%)</ion-label>
+      <ion-input type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Sensors</ion-label>
+      <ion-select mode="md" multiple="true" [(ngModel)]="roomobj.sensors" [value]="roomobj.sensors">
+        <ion-select-option *ngFor="let sensor of dataService.sensorlist" value="{{sensor.id}}">{{sensor.serialnumber}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+  </div>
+  <div style="min-height: 80px;">&nbsp;</div>
+
+
+</ion-content>
+
+<ion-footer>
+
+  <div class="buttonrow">
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <ion-button class="cancel-btn ion-no-margin" color="cancel" type="submit" expand="block" (click)="closeDialog()">Cancel</ion-button>
+      </ion-col>
+      <ion-col class="ion-no-padding">
+        <ion-button class="save-btn ion-no-margin"  color="btn" type="submit" expand="block" (click)="save()">Save</ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+
+</ion-footer>

@@ -1,0 +1,182 @@
+<ion-header class="ion-no-border">
+  <app-holatoolbar flat="true" title="Rooms "></app-holatoolbar>
+</ion-header>
+
+<ion-content class="ion-content-grey">
+  <div>
+  <ion-item lines="none" class="ion-content-grey VSmallNormal ">
+    <ion-label class="lbl ion-no-margin">Temperatue</ion-label>
+    <ion-select interface="popover" class="ion-no-padding" [(ngModel)]="select.option">
+      <ion-select-option value="today">Today</ion-select-option>
+      <ion-select-option value="week">Week</ion-select-option>
+      <ion-select-option value="month">Month</ion-select-option>  
+    </ion-select>
+  </ion-item>
+
+  <div class="detail-container">    
+    <ion-card class="detail-card ion-no-margin ion-margin-horizontal">
+      <ion-card-content class="ion-no-padding">
+        <ion-img class="img" src="../../../assets/graph.png"></ion-img>
+        <ion-item lines="none" class="VSmallNormal">
+          <ion-row class="Wid100">
+            <ion-col size="7">
+              <ion-label color="medium" class="VSmallBold">Current Temperature</ion-label>
+            </ion-col>
+            <ion-col size="1"><b>:</b></ion-col>
+            <ion-col size="4">
+              <ion-label color="dark">20 °C </ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+
+        <ion-item lines="none" class="VSmallNormal ">
+          <ion-row class="Wid100">
+            <ion-col size="7">
+              <ion-label color="medium" class="VSmallBold">Temerature Range Set</ion-label>
+            </ion-col>
+            <ion-col size="1"><b>:</b></ion-col>
+            <ion-col size="4">
+              <ion-label color="dark">16 °C to 22 °C </ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+</div>
+
+<div>
+  <ion-item lines="none" class="ion-content-grey VSmallNormal ">
+    <ion-label class="lbl ion-no-margin">Humidity</ion-label>
+    <ion-select interface="popover" class="ion-no-padding" [(ngModel)]="select.option">
+      <ion-select-option value="today">Today</ion-select-option>
+      <ion-select-option value="week">Week</ion-select-option>
+      <ion-select-option value="month">Month</ion-select-option>  
+    </ion-select>
+  </ion-item>
+
+  <div class="detail-container">    
+    <ion-card class="detail-card ion-no-margin ion-margin-horizontal">
+      <ion-card-content class="ion-no-padding">
+        <ion-img class="img" src="../../../assets/graph.png"></ion-img>
+        <ion-item lines="none" class="VSmallNormal">
+          <ion-row class="Wid100">
+            <ion-col size="7">
+              <ion-label color="medium" class="VSmallBold">Current Humidity</ion-label>
+            </ion-col>
+            <ion-col size="1"><b>:</b></ion-col>
+            <ion-col size="4">
+              <ion-label color="dark">55% </ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+
+        <ion-item lines="none" class="VSmallNormal ">
+          <ion-row class="Wid100">
+            <ion-col size="7">
+              <ion-label color="medium" class="VSmallBold">Humidity Range Set</ion-label>
+            </ion-col>
+            <ion-col size="1"><b>:</b></ion-col>
+            <ion-col size="4">
+              <ion-label color="dark">50% to 65% </ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+</div>
+
+<div class="senso-div">
+  <ion-item lines="none" class="ion-content-grey VSmallNormal ">
+    <ion-label class="lbl ion-no-margin">Sensor Detail</ion-label>
+  </ion-item>
+  
+  <div class="detail-container">    
+    <ion-card class="detail-card ion-no-margin ion-margin-horizontal">
+      
+      <ion-card-content class="ion-no-padding">
+        <ion-item lines="none" class="VSmallNormal">
+         
+          <ion-row class="Wid100">
+            <ion-col size="7">
+              <ion-label color="medium" class="VSmallBold">Sensor</ion-label>
+            </ion-col>
+            <ion-col size="1"><b>:</b></ion-col>
+            <ion-col size="4">
+              <ion-label color="dark">005</ion-label>
+              
+            </ion-col>
+          </ion-row>          
+        </ion-item>
+  
+        <ion-item lines="none" class="VSmallNormal ">
+          <ion-row class="Wid100">
+            <ion-col size="7">
+              <ion-label color="medium" class="VSmallBold">Detail</ion-label>
+            </ion-col>
+            <ion-col size="1"><b>:</b></ion-col>
+            <ion-col size="4">
+              <ion-label color="dark">On the wall </ion-label>
+            </ion-col>
+          </ion-row>
+          
+        </ion-item>
+      </ion-card-content>
+    
+    </ion-card>   
+  
+  </div>
+  
+</div>
+
+<div>
+  <ion-item lines="none" class="ion-content-grey VSmallNormal ">
+    <ion-label class="lbl ion-no-margin">About Operation Theatre : 1</ion-label>
+  </ion-item>
+  
+  <div class="detail-container">    
+    <ion-card class="detail-card ion-no-margin ion-margin-horizontal">
+      <ion-card-content class="ion-no-padding">
+        <ion-item lines="none" class="VSmallNormal">
+          <ion-row class="Wid100">
+            <ion-col size="7">
+              <ion-label color="medium" class="VSmallBold">Building Name/wing</ion-label>
+            </ion-col>
+            <ion-col size="1"><b>:</b></ion-col>
+            <ion-col size="4">
+              <ion-label color="dark">Nivan / B-Wing</ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+  
+        <ion-item lines="none" class="VSmallNormal ">
+          <ion-row class="Wid100">
+            <ion-col size="7">
+              <ion-label color="medium" class="VSmallBold">Floors</ion-label>
+            </ion-col>
+            <ion-col size="1"><b>:</b></ion-col>
+            <ion-col size="4">
+              <ion-label color="dark">5 </ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  
+  </div>
+
+</div>
+
+<div style="min-height: 80px !important;">&nbsp;</div>
+
+<ion-fab class="fab-add" vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="addRoom()">
+    <ion-icon name="pencil-sharp">
+    </ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+</ion-content>

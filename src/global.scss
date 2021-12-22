@@ -24,3 +24,246 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+/* fonts */
+@font-face {
+    font-family: "bahnschrift";
+    src: url("./assets/fonts/bahnschrift.ttf");
+}
+
+* {
+    font-family: "bahnschrift" !important;
+}
+
+.Wid100 {
+    width: 100%;
+}
+
+.aligncenter {
+    text-align: center !important;
+}
+
+ion-header {
+    background: var(--ion-color-primary);
+}
+
+.warning-toast {
+    --color: var(--ion-color-primary-contrast);
+    --background: var(--ion-color-primary);
+    --button-color: var(--ion-color-warning);
+}
+
+.ion-content-grey {
+  --background: var(--ion-color-contentbg);
+  border: none !important;
+}
+
+.fab-btn {   
+    ion-icon {
+        height: 35px;
+        width: 35px;
+        --ionicon-stroke-width: 64px;
+    }
+}
+
+.crud-form-wrapper {
+    .modal-wrapper {
+        border-radius: 8px;
+        max-height: 90vh;
+        min-height: var(--crud-form-height) !important;
+        height: 40vh;
+        width: 90%;
+    }
+}
+
+/*Custom-Alert css */
+.my-custom-alert {
+    .alert-wrapper.sc-ion-alert-ios {
+        height: auto !important;
+        width: auto !important;
+        border-radius: 6px;
+        .alert-head.sc-ion-alert-ios {
+            background-color: var(--ion-color-primary) !important;
+            .alert-title.sc-ion-alert-ios {
+                color: var(--ion-color-primary-contrast) !important;
+                font-size: 1.2rem !important;
+                font-weight: normal !important;
+            }
+        }
+        .alert-message.sc-ion-alert-ios {
+            margin-top: 10px;
+            padding-top: 10px;
+            font-size: 1rem !important;
+            font-weight: normal !important;
+        }
+
+        .alert-button-group.sc-ion-alert-ios {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.alertButtonY {
+    border: none !important ;
+    padding-right: 10px !important;
+    border-radius: 5px !important;
+    color: var(--ion-color-secondary-contrast) !important;
+    width: 50px !important;
+    height: 40px;
+    font-size: 1rem;
+    .alert-button-inner.sc-ion-alert-ios {
+        background-color: var(--ion-color-secondary) !important;
+        border-radius: 5px !important;
+    }
+}
+
+.alertButtonN {
+    border: none !important ;
+    padding-left: 10px !important;
+    border-radius: 5px !important;
+    color: var(--ion-color-cancel-contrast) !important;
+    width: 50px !important;
+    height: 40px;
+    font-size: 1rem;
+    .alert-button-inner.sc-ion-alert-ios {
+        background-color: var(--ion-color-cancel) !important;
+        border-radius: 5px !important;
+    }
+}
+
+
+/* custom Toast css */
+.success-toast {
+    --color: var(--ion-color-success);
+    --button-color: var(--ion-color-success);
+}
+
+.fail-toast {
+    --color: var(--ion-color-danger);
+    --button-color: var(--ion-color-danger);
+}
+
+.warning-toast {
+    --color: var(--ion-color-warning);
+    --button-color: var(--ion-color-warning);
+}
+
+//FONTS AND SIZES
+
+.VSmallNormal {
+    font-size: 0.8rem;
+    font-weight: normal;
+}
+
+.VSmallBold {
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.SmallNormal {
+    font-size: 0.9rem;
+    font-weight: normal;
+}
+
+.SmallBold {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.MediumNormal {
+    font-size: 1.1rem;
+    font-weight: normal;
+}
+
+.MediumBold {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.LargeNormal {
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+.LargeBold {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.VLargeNormal {
+    font-size: 1.4rem;
+    font-weight: normal;
+}
+
+.VLargeBold {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.trashIcon {
+    color: var(--ion-color-danger);
+    min-height: 20px !important;
+    min-width: 20px !important;
+}
+
+.leftAlign {
+    text-align: left !important;
+}
+
+.centerAlign {
+    text-align: center !important;
+}
+.smallPad {
+    padding: 10px !important;
+}
+
+.tinyPad {
+    padding: 7px !important;
+}
+
+.noPad {
+    padding: 0px !important;
+}
+
+.aligncenter {
+    text-align: center !important;
+}
+//CUSTOM COLOR CLASSES
+.ion-color-cancel {
+  --ion-color-base: var(--ion-color-cancel);
+  --ion-color-base-rgb: var(--ion-color-cancel-rgb);
+  --ion-color-contrast: var(--ion-color-cancel-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-cancel-contrast-rgb);
+  --ion-color-shade: var(--ion-color-cancel-shade);
+  --ion-color-tint: var(--ion-color-cancel-tint);
+}
+
+.ion-color-progress {
+    --ion-color-base: var(--ion-color-progress);
+    --ion-color-base-rgb: var(--ion-color-progress-rgb);
+    --ion-color-contrast: var(--ion-color-progress-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-progress-contrast-rgb);
+    --ion-color-shade: var(--ion-color-progress-shade);
+    --ion-color-tint: var(--ion-color-progress-tint);
+  }
+
+  .ion-color-accent {
+    --ion-color-base: var(--ion-color-accent);
+    --ion-color-base-rgb: var(--ion-color-accent-rgb);
+    --ion-color-contrast: var(--ion-color-accent-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-accent-contrast-rgb);
+    --ion-color-shade: var(--ion-color-accent-shade);
+    --ion-color-tint: var(--ion-color-accent-tint);
+  }
+
+  .ion-color-btn {
+	--ion-color-base: var(--ion-color-btn);
+	--ion-color-base-rgb: var(--ion-color-btn-rgb);
+	--ion-color-contrast: var(--ion-color-btn-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-btn-contrast-rgb);
+	--ion-color-shade: var(--ion-color-btn-shade);
+	--ion-color-tint: var(--ion-color-btn-tint);
+}
+

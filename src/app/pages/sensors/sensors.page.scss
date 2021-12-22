@@ -1,0 +1,37 @@
+.data-list {
+    // --background: var(--ion-color-primary-contrast);
+    // margin: 5px 15px 15px 15px;
+     margin: 10px 12px 10px 12px;
+     height: auto;
+     border-radius: 5px;
+     //box-shadow: var(--ion-color-light);
+     //font-family: "Century Gothic";
+ 
+     .listiconstyle {
+         color: var(--ion-color-light);
+         min-height: 25px !important;
+         min-width: 25px !important;
+     }
+ 
+     .field-1 {
+         color: var(--ion-color-medium);
+         margin-left: 10px;
+         padding-top: 5px;
+     }
+ 
+     .field-2 {
+         margin-left: 15px;
+         .fieldlabel-2 {
+             color: var(--ion-color-light);
+             margin-right: 5px;
+         }
+         .fieldheading-2 {
+           font-weight:bold;
+           color: var(--ion-color-primary);
+         }
+     }
+ }
+
+ ion-searchbar {
+    --box-shadow: none;
+ }

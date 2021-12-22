@@ -1,0 +1,58 @@
+<ion-content [fullscreen]="true">
+ 
+</ion-content>
+
+
+<ion-footer class="ion-no-border mainDiv">
+  <ion-list class="main-list">
+    <ion-list-header class="list-head ion-no-margin">
+      <ion-label class="ion-padding-start lbl-head">WELCOME</ion-label>
+    </ion-list-header>
+    <ion-item-group>
+      <div class="input-div ion-margin-top SmallNormal">
+        <ion-label>Username/MobileNo</ion-label>
+        <ion-item color="primary" class="ion-margin-horizontal">
+          <ion-input class="ion-no-padding" [(ngModel)]="uname" placeholder="7303XXX530" type="tel" minlength="10" maxlength="10">
+          </ion-input>
+        </ion-item>
+      </div>
+
+      <div class=" input-div ion-margin-top SmallNormal">
+        <ion-label>Password</ion-label>
+        <ion-item color="primary" class="ion-margin-horizontal">
+          <ion-input class="ion-no-padding" [(ngModel)]="userpass" [type]="passwordType" clearOnEdit="false"></ion-input>
+        <ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
+      
+        </ion-item>
+
+      </div>
+
+      <ion-item class="ion-float-right" lines="none" color="primary">
+        <ion-button class="forget-pass ion-no-margin" fill="clear">Forgot password?</ion-button>
+      </ion-item>
+
+      <ion-item class=" item-signin ion-no-padding VSmallNormal ion-padding-top ion-margin-start" lines="none" color="primary">
+        <ion-checkbox class="checkbox-square ion-margin-start" mode="md"></ion-checkbox>
+        <ion-label class="stay-signin ion-no-margin"> Stay Signed in</ion-label>
+      </ion-item>
+
+      <ion-button [disabled]="isprocessing" expand="block" class="login-button MediumBold ion-margin-horizontal ion-padding-horizontal" (click)="login()">Login</ion-button>
+
+    </ion-item-group>
+
+    <div class="Wid100 aligncenter">
+      <ion-spinner *ngIf="isprocessing" name="lines"></ion-spinner>
+    </div>
+
+    <ion-item lines="none" class="copyright VSmallNormal" color="primary">
+      <ion-label class="ion-text-center">© 2021 All rights reserved</ion-label>
+    </ion-item>
+
+  </ion-list>
+
+  
+
+
+
+
+</ion-footer>

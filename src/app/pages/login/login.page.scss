@@ -1,0 +1,50 @@
+ion-content {
+    --background: url("../../../assets/Nanavati_f.jpg") no-repeat top center/auto;
+}
+
+.main-list {
+    --background: none;
+    background: var(--ion-color-primary) !important;
+    border-radius: 20px 20px 0 0;
+    .list-head {
+        .lbl-head {
+            font-weight: normal;
+            font-size: 1.6rem;
+            color: var(--ion-color-primary-contrast);
+        }
+    }
+    ion-item-group {
+        ion-label {
+            color: var(--ion-color-primary-contrast);
+        }
+        .input-div {
+            ion-label {
+                padding-left: 32px;
+                padding-top: 5px;
+            }
+            ion-item {
+                border-bottom: 0.5px solid var(--ion-color-primary-contrast);
+                --min-height: 30px;
+            }
+        }
+    }
+}
+.stay-signin {
+    padding-top: 3px;
+    padding-left: 5px;
+}
+
+.forget-pass {
+    text-transform: none;
+    color: var(--ion-color-primary-contrast);
+}
+
+.login-button {
+    box-shadow: none;
+    --background: var(--ion-color-primary-contrast);
+    color: var(--ion-color-medium);
+    text-transform: none;
+    border-radius: 5px;
+}
+
+

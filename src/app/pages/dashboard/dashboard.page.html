@@ -1,0 +1,90 @@
+<ion-header class="ion-no-border">
+  <app-holatoolbar flat="true" showMenu="true" title="Nanavati Hospital"></app-holatoolbar>
+
+</ion-header>
+<ion-row class="selectfilter">
+  <ion-col size="6" class="noPad">
+    <ion-item lines="none">
+      <ion-label position="floating">Select Section</ion-label>
+      <ion-select mode="md" interface="popover" [(ngModel)]="dataService.dashboardsectionid"
+        value="dataService.dashboardsectionid" (ionChange)="segmentChanged()">
+        <ion-select-option *ngFor="let item of dataService.sectionList;" value="{{item.id}}">{{item.name}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-col>
+
+  <ion-col size="6" class="noPad">
+    <ion-item lines="none">
+      <ion-label position="floating">Filter</ion-label>
+      <ion-select interface="popover" [(ngModel)]="defaultfilter">
+        <ion-select-option *ngFor="let item of filterlist;" value="{{item.type}}">{{item.type}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-col>
+
+</ion-row>
+<ion-fab class="fab-not" vertical="top" horizontal="end" slot="fixed">
+  <ion-fab-button>
+    <ion-icon name="notifications">
+    </ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-content class="ion-content-grey ion-padding-top">
+
+  <div *ngIf="dataService.roomlist.length == 0" class="myphoto"
+    style="top: 50%; position: absolute; left: 50%;transform: translate(-50%, -50%);">
+    <ion-text color="light">click '+' to add Rooms</ion-text>
+  </div>
+
+  <div *ngIf="dataService.roomlist && dataService.roomlist.length > 0">
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col size="6" class="ion-no-padding">
+          <ion-card class="card-det" (click)="viewRoom(item)">
+            <ion-card-content class="ion-no-padding ion-text-center">
+              <ion-label class="head-lbl SmallBold"><span>OT</span> <span> : </span>1</ion-label>
+              <ion-item lines="none">
+                <ion-row class="Wid100">
+                  <ion-col class="temp-col  ion-text-center">
+                    <ion-badge *ngIf="item.currentavgtem && item.currentavgtem >=  item.temperaturemin &&  item.currentavgtem <=  item.temperaturemax " class="tempbadge normaltemp ion-no padding ">{{item.currentavgtem ? item.currentavgtem : 5}}°C</ion-badge>
+                    <ion-badge *ngIf="item.currentavgtem && item.currentavgtem <  item.temperaturemin" class="tempbadge lowtemp ion-no padding ">{{item.currentavgtem ? item.currentavgtem : 5}}°C</ion-badge>
+                    <ion-badge *ngIf="item.currentavgtem && item.currentavgtem >  item.temperaturemax" class="tempbadge hightemp ion-no padding">{{item.currentavgtem ? item.currentavgtem : 5}}°C</ion-badge>
+  
+                    <!-- <ion-badge class="tempbadge normaltemp ion-no padding ">5°C</ion-badge> -->
+                  </ion-col>
+                  <ion-col class="humidity-col  ion-text-center">
+                    <ion-badge *ngIf="item.currentavgtem && item.currentavgtem >=  item.temperaturemin &&  item.currentavgtem <=  item.temperaturemax " class="humiditybadge normaltemp ion-no padding ">{{item.currentavgtem ? item.currentavgtem : 5}}°C</ion-badge>
+                    <ion-badge *ngIf="item.currentavgtem && item.currentavgtem <  item.temperaturemin" class="humiditybadge lowtemp ion-no padding ">{{item.currentavgtem ? item.currentavgtem : 5}}°C</ion-badge>
+                    <ion-badge *ngIf="item.currentavgtem && item.currentavgtem >  item.temperaturemax" class="humiditybadge hightemp ion-no padding">{{item.currentavgtem ? item.currentavgtem : 5}}°C</ion-badge>
+            
+                    <!-- <ion-badge class="humiditybadge hightemp ion-no padding">12%</ion-badge> -->
+                  </ion-col>
+                </ion-row>
+              </ion-item>
+
+              <div class="temp-item ion-text-center">
+                <ion-label>Temperature</ion-label>
+                <ion-label>Humidity</ion-label>
+              </div>
+
+
+              <div class="ion-text-center sensorstatus">  {{item._lastChangedAt | date : 'd MMM, HH:mm'}}
+                <ion-icon class="greenDot" name="ellipse"></ion-icon>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+
+  <ion-fab class="fab-add" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addRoom()">
+      <ion-icon name="add">
+      </ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

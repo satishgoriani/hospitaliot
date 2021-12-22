@@ -1,0 +1,28 @@
+.detail-card{
+    --background: var(--ion-background-color);
+    box-shadow: none;
+    border-radius: 0px;
+    margin: 0px 10x;
+    ion-item {
+        --min-height: 30px;
+    }
+}
+
+
+.fab-add {
+    ion-fab-button {
+        margin: 10px;
+    }
+    ion-icon {
+        --ionicon-stroke-width: 64px;
+    }
+}
+
+.lbl{
+    font-weight: bold;
+}
+
+.senso-div{
+    position: relative;
+    z-index: 1;
+}
