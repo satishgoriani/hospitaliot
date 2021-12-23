@@ -37,6 +37,7 @@ export type CreateSensorInput = {
   companyID?: string | null;
   lastreadtemp?: number | null;
   lastreceivedon?: number | null;
+  _version?: number | null;
 };
 
 export type ModelSensorConditionInput = {
@@ -137,6 +138,9 @@ export type Sensor = {
   companyID?: string | null;
   lastreadtemp?: number | null;
   lastreceivedon?: number | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -148,16 +152,19 @@ export type UpdateSensorInput = {
   companyID?: string | null;
   lastreadtemp?: number | null;
   lastreceivedon?: number | null;
+  _version?: number | null;
 };
 
 export type DeleteSensorInput = {
   id: string;
+  _version?: number | null;
 };
 
 export type CreateUsermenuInput = {
   id?: string | null;
   name?: string | null;
   menucode?: string | null;
+  _version?: number | null;
 };
 
 export type ModelUsermenuConditionInput = {
@@ -173,6 +180,9 @@ export type Usermenu = {
   id: string;
   name?: string | null;
   menucode?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -181,10 +191,12 @@ export type UpdateUsermenuInput = {
   id: string;
   name?: string | null;
   menucode?: string | null;
+  _version?: number | null;
 };
 
 export type DeleteUsermenuInput = {
   id: string;
+  _version?: number | null;
 };
 
 export type CreateUserInput = {
@@ -199,6 +211,7 @@ export type CreateUserInput = {
   menunamestring?: string | null;
   sectionID: string;
   sectionname?: string | null;
+  _version?: number | null;
 };
 
 export type ModelUserConditionInput = {
@@ -230,6 +243,9 @@ export type User = {
   menunamestring?: string | null;
   sectionID: string;
   sectionname?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -246,10 +262,12 @@ export type UpdateUserInput = {
   menunamestring?: string | null;
   sectionID?: string | null;
   sectionname?: string | null;
+  _version?: number | null;
 };
 
 export type DeleteUserInput = {
   id: string;
+  _version?: number | null;
 };
 
 export type CreateCompanyInput = {
@@ -259,6 +277,7 @@ export type CreateCompanyInput = {
   adminpass?: string | null;
   domainname?: string | null;
   highsecpin?: string | null;
+  _version?: number | null;
 };
 
 export type ModelCompanyConditionInput = {
@@ -279,39 +298,48 @@ export type Company = {
   registeredemail?: string | null;
   adminpass?: string | null;
   domainname?: string | null;
-  CompanyUsers?: ModelUserConnection | null;
-  CompanySections?: ModelSectionConnection | null;
   highsecpin?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
+  CompanyUsers?: ModelUserConnection | null;
+  CompanySections?: ModelSectionConnection | null;
 };
 
 export type ModelUserConnection = {
   __typename: "ModelUserConnection";
-  items?: Array<User | null> | null;
+  items: Array<User | null>;
   nextToken?: string | null;
+  startedAt?: number | null;
 };
 
 export type ModelSectionConnection = {
   __typename: "ModelSectionConnection";
-  items?: Array<Section | null> | null;
+  items: Array<Section | null>;
   nextToken?: string | null;
+  startedAt?: number | null;
 };
 
 export type Section = {
   __typename: "Section";
   id: string;
   name: string;
-  SectionRooms?: ModelRoomConnection | null;
   companyID?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
+  SectionRooms?: ModelRoomConnection | null;
 };
 
 export type ModelRoomConnection = {
   __typename: "ModelRoomConnection";
-  items?: Array<Room | null> | null;
+  items: Array<Room | null>;
   nextToken?: string | null;
+  startedAt?: number | null;
 };
 
 export type Room = {
@@ -326,6 +354,9 @@ export type Room = {
   sectionname?: string | null;
   sensors?: Array<string | null> | null;
   sensorsasstring?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -337,10 +368,12 @@ export type UpdateCompanyInput = {
   adminpass?: string | null;
   domainname?: string | null;
   highsecpin?: string | null;
+  _version?: number | null;
 };
 
 export type DeleteCompanyInput = {
   id: string;
+  _version?: number | null;
 };
 
 export type CreateRoomInput = {
@@ -354,6 +387,7 @@ export type CreateRoomInput = {
   sectionname?: string | null;
   sensors?: Array<string | null> | null;
   sensorsasstring?: string | null;
+  _version?: number | null;
 };
 
 export type ModelRoomConditionInput = {
@@ -382,16 +416,19 @@ export type UpdateRoomInput = {
   sectionname?: string | null;
   sensors?: Array<string | null> | null;
   sensorsasstring?: string | null;
+  _version?: number | null;
 };
 
 export type DeleteRoomInput = {
   id: string;
+  _version?: number | null;
 };
 
 export type CreateSectionInput = {
   id?: string | null;
   name: string;
   companyID?: string | null;
+  _version?: number | null;
 };
 
 export type ModelSectionConditionInput = {
@@ -406,10 +443,12 @@ export type UpdateSectionInput = {
   id: string;
   name?: string | null;
   companyID?: string | null;
+  _version?: number | null;
 };
 
 export type DeleteSectionInput = {
   id: string;
+  _version?: number | null;
 };
 
 export type ModelSensorFilterInput = {
@@ -426,8 +465,9 @@ export type ModelSensorFilterInput = {
 
 export type ModelSensorConnection = {
   __typename: "ModelSensorConnection";
-  items?: Array<Sensor | null> | null;
+  items: Array<Sensor | null>;
   nextToken?: string | null;
+  startedAt?: number | null;
 };
 
 export type ModelUsermenuFilterInput = {
@@ -441,8 +481,9 @@ export type ModelUsermenuFilterInput = {
 
 export type ModelUsermenuConnection = {
   __typename: "ModelUsermenuConnection";
-  items?: Array<Usermenu | null> | null;
+  items: Array<Usermenu | null>;
   nextToken?: string | null;
+  startedAt?: number | null;
 };
 
 export type ModelUserFilterInput = {
@@ -476,9 +517,15 @@ export type ModelCompanyFilterInput = {
 
 export type ModelCompanyConnection = {
   __typename: "ModelCompanyConnection";
-  items?: Array<Company | null> | null;
+  items: Array<Company | null>;
   nextToken?: string | null;
+  startedAt?: number | null;
 };
+
+export enum ModelSortDirection {
+  ASC = "ASC",
+  DESC = "DESC"
+}
 
 export type ModelRoomFilterInput = {
   id?: ModelIDInput | null;
@@ -505,11 +552,6 @@ export type ModelSectionFilterInput = {
   not?: ModelSectionFilterInput | null;
 };
 
-export enum ModelSortDirection {
-  ASC = "ASC",
-  DESC = "DESC"
-}
-
 export type CreateSensorMutation = {
   __typename: "Sensor";
   id: string;
@@ -518,6 +560,9 @@ export type CreateSensorMutation = {
   companyID?: string | null;
   lastreadtemp?: number | null;
   lastreceivedon?: number | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -530,6 +575,9 @@ export type UpdateSensorMutation = {
   companyID?: string | null;
   lastreadtemp?: number | null;
   lastreceivedon?: number | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -542,6 +590,9 @@ export type DeleteSensorMutation = {
   companyID?: string | null;
   lastreadtemp?: number | null;
   lastreceivedon?: number | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -551,6 +602,9 @@ export type CreateUsermenuMutation = {
   id: string;
   name?: string | null;
   menucode?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -560,6 +614,9 @@ export type UpdateUsermenuMutation = {
   id: string;
   name?: string | null;
   menucode?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -569,6 +626,9 @@ export type DeleteUsermenuMutation = {
   id: string;
   name?: string | null;
   menucode?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -586,6 +646,9 @@ export type CreateUserMutation = {
   menunamestring?: string | null;
   sectionID: string;
   sectionname?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -603,6 +666,9 @@ export type UpdateUserMutation = {
   menunamestring?: string | null;
   sectionID: string;
   sectionname?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -620,6 +686,9 @@ export type DeleteUserMutation = {
   menunamestring?: string | null;
   sectionID: string;
   sectionname?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -631,9 +700,15 @@ export type CreateCompanyMutation = {
   registeredemail?: string | null;
   adminpass?: string | null;
   domainname?: string | null;
+  highsecpin?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
+  createdAt: string;
+  updatedAt: string;
   CompanyUsers?: {
     __typename: "ModelUserConnection";
-    items?: Array<{
+    items: Array<{
       __typename: "User";
       id: string;
       firstname: string;
@@ -646,26 +721,31 @@ export type CreateCompanyMutation = {
       menunamestring?: string | null;
       sectionID: string;
       sectionname?: string | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    } | null> | null;
+    } | null>;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
   CompanySections?: {
     __typename: "ModelSectionConnection";
-    items?: Array<{
+    items: Array<{
       __typename: "Section";
       id: string;
       name: string;
       companyID?: string | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    } | null> | null;
+    } | null>;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
-  highsecpin?: string | null;
-  createdAt: string;
-  updatedAt: string;
 };
 
 export type UpdateCompanyMutation = {
@@ -675,9 +755,15 @@ export type UpdateCompanyMutation = {
   registeredemail?: string | null;
   adminpass?: string | null;
   domainname?: string | null;
+  highsecpin?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
+  createdAt: string;
+  updatedAt: string;
   CompanyUsers?: {
     __typename: "ModelUserConnection";
-    items?: Array<{
+    items: Array<{
       __typename: "User";
       id: string;
       firstname: string;
@@ -690,26 +776,31 @@ export type UpdateCompanyMutation = {
       menunamestring?: string | null;
       sectionID: string;
       sectionname?: string | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    } | null> | null;
+    } | null>;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
   CompanySections?: {
     __typename: "ModelSectionConnection";
-    items?: Array<{
+    items: Array<{
       __typename: "Section";
       id: string;
       name: string;
       companyID?: string | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    } | null> | null;
+    } | null>;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
-  highsecpin?: string | null;
-  createdAt: string;
-  updatedAt: string;
 };
 
 export type DeleteCompanyMutation = {
@@ -719,9 +810,15 @@ export type DeleteCompanyMutation = {
   registeredemail?: string | null;
   adminpass?: string | null;
   domainname?: string | null;
+  highsecpin?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
+  createdAt: string;
+  updatedAt: string;
   CompanyUsers?: {
     __typename: "ModelUserConnection";
-    items?: Array<{
+    items: Array<{
       __typename: "User";
       id: string;
       firstname: string;
@@ -734,26 +831,31 @@ export type DeleteCompanyMutation = {
       menunamestring?: string | null;
       sectionID: string;
       sectionname?: string | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    } | null> | null;
+    } | null>;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
   CompanySections?: {
     __typename: "ModelSectionConnection";
-    items?: Array<{
+    items: Array<{
       __typename: "Section";
       id: string;
       name: string;
       companyID?: string | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    } | null> | null;
+    } | null>;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
-  highsecpin?: string | null;
-  createdAt: string;
-  updatedAt: string;
 };
 
 export type CreateRoomMutation = {
@@ -768,6 +870,9 @@ export type CreateRoomMutation = {
   sectionname?: string | null;
   sensors?: Array<string | null> | null;
   sensorsasstring?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -784,6 +889,9 @@ export type UpdateRoomMutation = {
   sectionname?: string | null;
   sensors?: Array<string | null> | null;
   sensorsasstring?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -800,6 +908,9 @@ export type DeleteRoomMutation = {
   sectionname?: string | null;
   sensors?: Array<string | null> | null;
   sensorsasstring?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -808,9 +919,15 @@ export type CreateSectionMutation = {
   __typename: "Section";
   id: string;
   name: string;
+  companyID?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
+  createdAt: string;
+  updatedAt: string;
   SectionRooms?: {
     __typename: "ModelRoomConnection";
-    items?: Array<{
+    items: Array<{
       __typename: "Room";
       id: string;
       name: string;
@@ -822,23 +939,30 @@ export type CreateSectionMutation = {
       sectionname?: string | null;
       sensors?: Array<string | null> | null;
       sensorsasstring?: string | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    } | null> | null;
+    } | null>;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
-  companyID?: string | null;
-  createdAt: string;
-  updatedAt: string;
 };
 
 export type UpdateSectionMutation = {
   __typename: "Section";
   id: string;
   name: string;
+  companyID?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
+  createdAt: string;
+  updatedAt: string;
   SectionRooms?: {
     __typename: "ModelRoomConnection";
-    items?: Array<{
+    items: Array<{
       __typename: "Room";
       id: string;
       name: string;
@@ -850,23 +974,30 @@ export type UpdateSectionMutation = {
       sectionname?: string | null;
       sensors?: Array<string | null> | null;
       sensorsasstring?: string | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    } | null> | null;
+    } | null>;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
-  companyID?: string | null;
-  createdAt: string;
-  updatedAt: string;
 };
 
 export type DeleteSectionMutation = {
   __typename: "Section";
   id: string;
   name: string;
+  companyID?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
+  createdAt: string;
+  updatedAt: string;
   SectionRooms?: {
     __typename: "ModelRoomConnection";
-    items?: Array<{
+    items: Array<{
       __typename: "Room";
       id: string;
       name: string;
@@ -878,14 +1009,15 @@ export type DeleteSectionMutation = {
       sectionname?: string | null;
       sensors?: Array<string | null> | null;
       sensorsasstring?: string | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    } | null> | null;
+    } | null>;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
-  companyID?: string | null;
-  createdAt: string;
-  updatedAt: string;
 };
 
 export type GetSensorQuery = {
@@ -896,13 +1028,16 @@ export type GetSensorQuery = {
   companyID?: string | null;
   lastreadtemp?: number | null;
   lastreceivedon?: number | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
 
 export type ListSensorsQuery = {
   __typename: "ModelSensorConnection";
-  items?: Array<{
+  items: Array<{
     __typename: "Sensor";
     id: string;
     serialnumber: string;
@@ -910,10 +1045,34 @@ export type ListSensorsQuery = {
     companyID?: string | null;
     lastreadtemp?: number | null;
     lastreceivedon?: number | null;
+    _version: number;
+    _deleted?: boolean | null;
+    _lastChangedAt: number;
     createdAt: string;
     updatedAt: string;
-  } | null> | null;
+  } | null>;
   nextToken?: string | null;
+  startedAt?: number | null;
+};
+
+export type SyncSensorsQuery = {
+  __typename: "ModelSensorConnection";
+  items: Array<{
+    __typename: "Sensor";
+    id: string;
+    serialnumber: string;
+    remarks?: string | null;
+    companyID?: string | null;
+    lastreadtemp?: number | null;
+    lastreceivedon?: number | null;
+    _version: number;
+    _deleted?: boolean | null;
+    _lastChangedAt: number;
+    createdAt: string;
+    updatedAt: string;
+  } | null>;
+  nextToken?: string | null;
+  startedAt?: number | null;
 };
 
 export type GetUsermenuQuery = {
@@ -921,21 +1080,45 @@ export type GetUsermenuQuery = {
   id: string;
   name?: string | null;
   menucode?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
 
 export type ListUsermenusQuery = {
   __typename: "ModelUsermenuConnection";
-  items?: Array<{
+  items: Array<{
     __typename: "Usermenu";
     id: string;
     name?: string | null;
     menucode?: string | null;
+    _version: number;
+    _deleted?: boolean | null;
+    _lastChangedAt: number;
     createdAt: string;
     updatedAt: string;
-  } | null> | null;
+  } | null>;
   nextToken?: string | null;
+  startedAt?: number | null;
+};
+
+export type SyncUsermenusQuery = {
+  __typename: "ModelUsermenuConnection";
+  items: Array<{
+    __typename: "Usermenu";
+    id: string;
+    name?: string | null;
+    menucode?: string | null;
+    _version: number;
+    _deleted?: boolean | null;
+    _lastChangedAt: number;
+    createdAt: string;
+    updatedAt: string;
+  } | null>;
+  nextToken?: string | null;
+  startedAt?: number | null;
 };
 
 export type GetUserQuery = {
@@ -951,13 +1134,16 @@ export type GetUserQuery = {
   menunamestring?: string | null;
   sectionID: string;
   sectionname?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
 
 export type ListUsersQuery = {
   __typename: "ModelUserConnection";
-  items?: Array<{
+  items: Array<{
     __typename: "User";
     id: string;
     firstname: string;
@@ -970,10 +1156,39 @@ export type ListUsersQuery = {
     menunamestring?: string | null;
     sectionID: string;
     sectionname?: string | null;
+    _version: number;
+    _deleted?: boolean | null;
+    _lastChangedAt: number;
     createdAt: string;
     updatedAt: string;
-  } | null> | null;
+  } | null>;
   nextToken?: string | null;
+  startedAt?: number | null;
+};
+
+export type SyncUsersQuery = {
+  __typename: "ModelUserConnection";
+  items: Array<{
+    __typename: "User";
+    id: string;
+    firstname: string;
+    lastname?: string | null;
+    mobileno: string;
+    username?: string | null;
+    userpass?: string | null;
+    companyID?: string | null;
+    assignedmenuoptions?: Array<string | null> | null;
+    menunamestring?: string | null;
+    sectionID: string;
+    sectionname?: string | null;
+    _version: number;
+    _deleted?: boolean | null;
+    _lastChangedAt: number;
+    createdAt: string;
+    updatedAt: string;
+  } | null>;
+  nextToken?: string | null;
+  startedAt?: number | null;
 };
 
 export type GetCompanyQuery = {
@@ -983,9 +1198,15 @@ export type GetCompanyQuery = {
   registeredemail?: string | null;
   adminpass?: string | null;
   domainname?: string | null;
+  highsecpin?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
+  createdAt: string;
+  updatedAt: string;
   CompanyUsers?: {
     __typename: "ModelUserConnection";
-    items?: Array<{
+    items: Array<{
       __typename: "User";
       id: string;
       firstname: string;
@@ -998,50 +1219,121 @@ export type GetCompanyQuery = {
       menunamestring?: string | null;
       sectionID: string;
       sectionname?: string | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    } | null> | null;
+    } | null>;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
   CompanySections?: {
     __typename: "ModelSectionConnection";
-    items?: Array<{
+    items: Array<{
       __typename: "Section";
       id: string;
       name: string;
       companyID?: string | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    } | null> | null;
+    } | null>;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
-  highsecpin?: string | null;
-  createdAt: string;
-  updatedAt: string;
 };
 
 export type ListCompanysQuery = {
   __typename: "ModelCompanyConnection";
-  items?: Array<{
+  items: Array<{
     __typename: "Company";
     id: string;
     name: string;
     registeredemail?: string | null;
     adminpass?: string | null;
     domainname?: string | null;
+    highsecpin?: string | null;
+    _version: number;
+    _deleted?: boolean | null;
+    _lastChangedAt: number;
+    createdAt: string;
+    updatedAt: string;
     CompanyUsers?: {
       __typename: "ModelUserConnection";
       nextToken?: string | null;
+      startedAt?: number | null;
     } | null;
     CompanySections?: {
       __typename: "ModelSectionConnection";
       nextToken?: string | null;
+      startedAt?: number | null;
     } | null;
+  } | null>;
+  nextToken?: string | null;
+  startedAt?: number | null;
+};
+
+export type CompanyByEmailQuery = {
+  __typename: "ModelCompanyConnection";
+  items: Array<{
+    __typename: "Company";
+    id: string;
+    name: string;
+    registeredemail?: string | null;
+    adminpass?: string | null;
+    domainname?: string | null;
     highsecpin?: string | null;
+    _version: number;
+    _deleted?: boolean | null;
+    _lastChangedAt: number;
     createdAt: string;
     updatedAt: string;
-  } | null> | null;
+    CompanyUsers?: {
+      __typename: "ModelUserConnection";
+      nextToken?: string | null;
+      startedAt?: number | null;
+    } | null;
+    CompanySections?: {
+      __typename: "ModelSectionConnection";
+      nextToken?: string | null;
+      startedAt?: number | null;
+    } | null;
+  } | null>;
   nextToken?: string | null;
+  startedAt?: number | null;
+};
+
+export type SyncCompaniesQuery = {
+  __typename: "ModelCompanyConnection";
+  items: Array<{
+    __typename: "Company";
+    id: string;
+    name: string;
+    registeredemail?: string | null;
+    adminpass?: string | null;
+    domainname?: string | null;
+    highsecpin?: string | null;
+    _version: number;
+    _deleted?: boolean | null;
+    _lastChangedAt: number;
+    createdAt: string;
+    updatedAt: string;
+    CompanyUsers?: {
+      __typename: "ModelUserConnection";
+      nextToken?: string | null;
+      startedAt?: number | null;
+    } | null;
+    CompanySections?: {
+      __typename: "ModelSectionConnection";
+      nextToken?: string | null;
+      startedAt?: number | null;
+    } | null;
+  } | null>;
+  nextToken?: string | null;
+  startedAt?: number | null;
 };
 
 export type GetRoomQuery = {
@@ -1056,13 +1348,16 @@ export type GetRoomQuery = {
   sectionname?: string | null;
   sensors?: Array<string | null> | null;
   sensorsasstring?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
 
 export type ListRoomsQuery = {
   __typename: "ModelRoomConnection";
-  items?: Array<{
+  items: Array<{
     __typename: "Room";
     id: string;
     name: string;
@@ -1074,19 +1369,53 @@ export type ListRoomsQuery = {
     sectionname?: string | null;
     sensors?: Array<string | null> | null;
     sensorsasstring?: string | null;
+    _version: number;
+    _deleted?: boolean | null;
+    _lastChangedAt: number;
     createdAt: string;
     updatedAt: string;
-  } | null> | null;
+  } | null>;
   nextToken?: string | null;
+  startedAt?: number | null;
+};
+
+export type SyncRoomsQuery = {
+  __typename: "ModelRoomConnection";
+  items: Array<{
+    __typename: "Room";
+    id: string;
+    name: string;
+    sectionID?: string | null;
+    temperaturemin?: number | null;
+    temperaturemax?: number | null;
+    currentavgtem?: number | null;
+    numfloors?: number | null;
+    sectionname?: string | null;
+    sensors?: Array<string | null> | null;
+    sensorsasstring?: string | null;
+    _version: number;
+    _deleted?: boolean | null;
+    _lastChangedAt: number;
+    createdAt: string;
+    updatedAt: string;
+  } | null>;
+  nextToken?: string | null;
+  startedAt?: number | null;
 };
 
 export type GetSectionQuery = {
   __typename: "Section";
   id: string;
   name: string;
+  companyID?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
+  createdAt: string;
+  updatedAt: string;
   SectionRooms?: {
     __typename: "ModelRoomConnection";
-    items?: Array<{
+    items: Array<{
       __typename: "Room";
       id: string;
       name: string;
@@ -1098,55 +1427,59 @@ export type GetSectionQuery = {
       sectionname?: string | null;
       sensors?: Array<string | null> | null;
       sensorsasstring?: string | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    } | null> | null;
+    } | null>;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
-  companyID?: string | null;
-  createdAt: string;
-  updatedAt: string;
 };
 
 export type ListSectionsQuery = {
   __typename: "ModelSectionConnection";
-  items?: Array<{
+  items: Array<{
     __typename: "Section";
     id: string;
     name: string;
+    companyID?: string | null;
+    _version: number;
+    _deleted?: boolean | null;
+    _lastChangedAt: number;
+    createdAt: string;
+    updatedAt: string;
     SectionRooms?: {
       __typename: "ModelRoomConnection";
       nextToken?: string | null;
+      startedAt?: number | null;
     } | null;
-    companyID?: string | null;
-    createdAt: string;
-    updatedAt: string;
-  } | null> | null;
+  } | null>;
   nextToken?: string | null;
+  startedAt?: number | null;
 };
 
-export type CompanyByEmailQuery = {
-  __typename: "ModelCompanyConnection";
-  items?: Array<{
-    __typename: "Company";
+export type SyncSectionsQuery = {
+  __typename: "ModelSectionConnection";
+  items: Array<{
+    __typename: "Section";
     id: string;
     name: string;
-    registeredemail?: string | null;
-    adminpass?: string | null;
-    domainname?: string | null;
-    CompanyUsers?: {
-      __typename: "ModelUserConnection";
-      nextToken?: string | null;
-    } | null;
-    CompanySections?: {
-      __typename: "ModelSectionConnection";
-      nextToken?: string | null;
-    } | null;
-    highsecpin?: string | null;
+    companyID?: string | null;
+    _version: number;
+    _deleted?: boolean | null;
+    _lastChangedAt: number;
     createdAt: string;
     updatedAt: string;
-  } | null> | null;
+    SectionRooms?: {
+      __typename: "ModelRoomConnection";
+      nextToken?: string | null;
+      startedAt?: number | null;
+    } | null;
+  } | null>;
   nextToken?: string | null;
+  startedAt?: number | null;
 };
 
 export type OnCreateSensorSubscription = {
@@ -1157,6 +1490,9 @@ export type OnCreateSensorSubscription = {
   companyID?: string | null;
   lastreadtemp?: number | null;
   lastreceivedon?: number | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -1169,6 +1505,9 @@ export type OnUpdateSensorSubscription = {
   companyID?: string | null;
   lastreadtemp?: number | null;
   lastreceivedon?: number | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -1181,6 +1520,9 @@ export type OnDeleteSensorSubscription = {
   companyID?: string | null;
   lastreadtemp?: number | null;
   lastreceivedon?: number | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -1190,6 +1532,9 @@ export type OnCreateUsermenuSubscription = {
   id: string;
   name?: string | null;
   menucode?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -1199,6 +1544,9 @@ export type OnUpdateUsermenuSubscription = {
   id: string;
   name?: string | null;
   menucode?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -1208,6 +1556,9 @@ export type OnDeleteUsermenuSubscription = {
   id: string;
   name?: string | null;
   menucode?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -1225,6 +1576,9 @@ export type OnCreateUserSubscription = {
   menunamestring?: string | null;
   sectionID: string;
   sectionname?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -1242,6 +1596,9 @@ export type OnUpdateUserSubscription = {
   menunamestring?: string | null;
   sectionID: string;
   sectionname?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -1259,6 +1616,9 @@ export type OnDeleteUserSubscription = {
   menunamestring?: string | null;
   sectionID: string;
   sectionname?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -1270,9 +1630,15 @@ export type OnCreateCompanySubscription = {
   registeredemail?: string | null;
   adminpass?: string | null;
   domainname?: string | null;
+  highsecpin?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
+  createdAt: string;
+  updatedAt: string;
   CompanyUsers?: {
     __typename: "ModelUserConnection";
-    items?: Array<{
+    items: Array<{
       __typename: "User";
       id: string;
       firstname: string;
@@ -1285,26 +1651,31 @@ export type OnCreateCompanySubscription = {
       menunamestring?: string | null;
       sectionID: string;
       sectionname?: string | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    } | null> | null;
+    } | null>;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
   CompanySections?: {
     __typename: "ModelSectionConnection";
-    items?: Array<{
+    items: Array<{
       __typename: "Section";
       id: string;
       name: string;
       companyID?: string | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    } | null> | null;
+    } | null>;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
-  highsecpin?: string | null;
-  createdAt: string;
-  updatedAt: string;
 };
 
 export type OnUpdateCompanySubscription = {
@@ -1314,9 +1685,15 @@ export type OnUpdateCompanySubscription = {
   registeredemail?: string | null;
   adminpass?: string | null;
   domainname?: string | null;
+  highsecpin?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
+  createdAt: string;
+  updatedAt: string;
   CompanyUsers?: {
     __typename: "ModelUserConnection";
-    items?: Array<{
+    items: Array<{
       __typename: "User";
       id: string;
       firstname: string;
@@ -1329,26 +1706,31 @@ export type OnUpdateCompanySubscription = {
       menunamestring?: string | null;
       sectionID: string;
       sectionname?: string | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    } | null> | null;
+    } | null>;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
   CompanySections?: {
     __typename: "ModelSectionConnection";
-    items?: Array<{
+    items: Array<{
       __typename: "Section";
       id: string;
       name: string;
       companyID?: string | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    } | null> | null;
+    } | null>;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
-  highsecpin?: string | null;
-  createdAt: string;
-  updatedAt: string;
 };
 
 export type OnDeleteCompanySubscription = {
@@ -1358,9 +1740,15 @@ export type OnDeleteCompanySubscription = {
   registeredemail?: string | null;
   adminpass?: string | null;
   domainname?: string | null;
+  highsecpin?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
+  createdAt: string;
+  updatedAt: string;
   CompanyUsers?: {
     __typename: "ModelUserConnection";
-    items?: Array<{
+    items: Array<{
       __typename: "User";
       id: string;
       firstname: string;
@@ -1373,26 +1761,31 @@ export type OnDeleteCompanySubscription = {
       menunamestring?: string | null;
       sectionID: string;
       sectionname?: string | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    } | null> | null;
+    } | null>;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
   CompanySections?: {
     __typename: "ModelSectionConnection";
-    items?: Array<{
+    items: Array<{
       __typename: "Section";
       id: string;
       name: string;
       companyID?: string | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    } | null> | null;
+    } | null>;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
-  highsecpin?: string | null;
-  createdAt: string;
-  updatedAt: string;
 };
 
 export type OnCreateRoomSubscription = {
@@ -1407,6 +1800,9 @@ export type OnCreateRoomSubscription = {
   sectionname?: string | null;
   sensors?: Array<string | null> | null;
   sensorsasstring?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -1423,6 +1819,9 @@ export type OnUpdateRoomSubscription = {
   sectionname?: string | null;
   sensors?: Array<string | null> | null;
   sensorsasstring?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -1439,6 +1838,9 @@ export type OnDeleteRoomSubscription = {
   sectionname?: string | null;
   sensors?: Array<string | null> | null;
   sensorsasstring?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
   createdAt: string;
   updatedAt: string;
 };
@@ -1447,9 +1849,15 @@ export type OnCreateSectionSubscription = {
   __typename: "Section";
   id: string;
   name: string;
+  companyID?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
+  createdAt: string;
+  updatedAt: string;
   SectionRooms?: {
     __typename: "ModelRoomConnection";
-    items?: Array<{
+    items: Array<{
       __typename: "Room";
       id: string;
       name: string;
@@ -1461,23 +1869,30 @@ export type OnCreateSectionSubscription = {
       sectionname?: string | null;
       sensors?: Array<string | null> | null;
       sensorsasstring?: string | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    } | null> | null;
+    } | null>;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
-  companyID?: string | null;
-  createdAt: string;
-  updatedAt: string;
 };
 
 export type OnUpdateSectionSubscription = {
   __typename: "Section";
   id: string;
   name: string;
+  companyID?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
+  createdAt: string;
+  updatedAt: string;
   SectionRooms?: {
     __typename: "ModelRoomConnection";
-    items?: Array<{
+    items: Array<{
       __typename: "Room";
       id: string;
       name: string;
@@ -1489,23 +1904,30 @@ export type OnUpdateSectionSubscription = {
       sectionname?: string | null;
       sensors?: Array<string | null> | null;
       sensorsasstring?: string | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    } | null> | null;
+    } | null>;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
-  companyID?: string | null;
-  createdAt: string;
-  updatedAt: string;
 };
 
 export type OnDeleteSectionSubscription = {
   __typename: "Section";
   id: string;
   name: string;
+  companyID?: string | null;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
+  createdAt: string;
+  updatedAt: string;
   SectionRooms?: {
     __typename: "ModelRoomConnection";
-    items?: Array<{
+    items: Array<{
       __typename: "Room";
       id: string;
       name: string;
@@ -1517,14 +1939,15 @@ export type OnDeleteSectionSubscription = {
       sectionname?: string | null;
       sensors?: Array<string | null> | null;
       sensorsasstring?: string | null;
+      _version: number;
+      _deleted?: boolean | null;
+      _lastChangedAt: number;
       createdAt: string;
       updatedAt: string;
-    } | null> | null;
+    } | null>;
     nextToken?: string | null;
+    startedAt?: number | null;
   } | null;
-  companyID?: string | null;
-  createdAt: string;
-  updatedAt: string;
 };
 
 @Injectable({
@@ -1544,6 +1967,9 @@ export class APIService {
           companyID
           lastreadtemp
           lastreceivedon
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -1572,6 +1998,9 @@ export class APIService {
           companyID
           lastreadtemp
           lastreceivedon
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -1600,6 +2029,9 @@ export class APIService {
           companyID
           lastreadtemp
           lastreceivedon
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -1625,6 +2057,9 @@ export class APIService {
           id
           name
           menucode
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -1650,6 +2085,9 @@ export class APIService {
           id
           name
           menucode
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -1675,6 +2113,9 @@ export class APIService {
           id
           name
           menucode
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -1708,6 +2149,9 @@ export class APIService {
           menunamestring
           sectionID
           sectionname
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -1741,6 +2185,9 @@ export class APIService {
           menunamestring
           sectionID
           sectionname
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -1774,6 +2221,9 @@ export class APIService {
           menunamestring
           sectionID
           sectionname
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -1801,6 +2251,12 @@ export class APIService {
           registeredemail
           adminpass
           domainname
+          highsecpin
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
           CompanyUsers {
             __typename
             items {
@@ -1816,10 +2272,14 @@ export class APIService {
               menunamestring
               sectionID
               sectionname
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
           CompanySections {
             __typename
@@ -1828,14 +2288,15 @@ export class APIService {
               id
               name
               companyID
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
-          highsecpin
-          createdAt
-          updatedAt
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -1861,6 +2322,12 @@ export class APIService {
           registeredemail
           adminpass
           domainname
+          highsecpin
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
           CompanyUsers {
             __typename
             items {
@@ -1876,10 +2343,14 @@ export class APIService {
               menunamestring
               sectionID
               sectionname
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
           CompanySections {
             __typename
@@ -1888,14 +2359,15 @@ export class APIService {
               id
               name
               companyID
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
-          highsecpin
-          createdAt
-          updatedAt
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -1921,6 +2393,12 @@ export class APIService {
           registeredemail
           adminpass
           domainname
+          highsecpin
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
           CompanyUsers {
             __typename
             items {
@@ -1936,10 +2414,14 @@ export class APIService {
               menunamestring
               sectionID
               sectionname
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
           CompanySections {
             __typename
@@ -1948,14 +2430,15 @@ export class APIService {
               id
               name
               companyID
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
-          highsecpin
-          createdAt
-          updatedAt
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -1986,6 +2469,9 @@ export class APIService {
           sectionname
           sensors
           sensorsasstring
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -2018,6 +2504,9 @@ export class APIService {
           sectionname
           sensors
           sensorsasstring
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -2050,6 +2539,9 @@ export class APIService {
           sectionname
           sensors
           sensorsasstring
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -2074,6 +2566,12 @@ export class APIService {
           __typename
           id
           name
+          companyID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
           SectionRooms {
             __typename
             items {
@@ -2088,14 +2586,15 @@ export class APIService {
               sectionname
               sensors
               sensorsasstring
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
-          companyID
-          createdAt
-          updatedAt
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -2118,6 +2617,12 @@ export class APIService {
           __typename
           id
           name
+          companyID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
           SectionRooms {
             __typename
             items {
@@ -2132,14 +2637,15 @@ export class APIService {
               sectionname
               sensors
               sensorsasstring
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
-          companyID
-          createdAt
-          updatedAt
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -2162,6 +2668,12 @@ export class APIService {
           __typename
           id
           name
+          companyID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
           SectionRooms {
             __typename
             items {
@@ -2176,14 +2688,15 @@ export class APIService {
               sectionname
               sensors
               sensorsasstring
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
-          companyID
-          createdAt
-          updatedAt
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -2207,6 +2720,9 @@ export class APIService {
           companyID
           lastreadtemp
           lastreceivedon
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -2235,10 +2751,14 @@ export class APIService {
             companyID
             lastreadtemp
             lastreceivedon
+            _version
+            _deleted
+            _lastChangedAt
             createdAt
             updatedAt
           }
           nextToken
+          startedAt
         }
       }`;
     const gqlAPIServiceArguments: any = {};
@@ -2256,6 +2776,51 @@ export class APIService {
     )) as any;
     return <ListSensorsQuery>response.data.listSensors;
   }
+  async SyncSensors(
+    filter?: ModelSensorFilterInput,
+    limit?: number,
+    nextToken?: string,
+    lastSync?: number
+  ): Promise<SyncSensorsQuery> {
+    const statement = `query SyncSensors($filter: ModelSensorFilterInput, $limit: Int, $nextToken: String, $lastSync: AWSTimestamp) {
+        syncSensors(filter: $filter, limit: $limit, nextToken: $nextToken, lastSync: $lastSync) {
+          __typename
+          items {
+            __typename
+            id
+            serialnumber
+            remarks
+            companyID
+            lastreadtemp
+            lastreceivedon
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    if (lastSync) {
+      gqlAPIServiceArguments.lastSync = lastSync;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <SyncSensorsQuery>response.data.syncSensors;
+  }
   async GetUsermenu(id: string): Promise<GetUsermenuQuery> {
     const statement = `query GetUsermenu($id: ID!) {
         getUsermenu(id: $id) {
@@ -2263,6 +2828,9 @@ export class APIService {
           id
           name
           menucode
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -2288,10 +2856,14 @@ export class APIService {
             id
             name
             menucode
+            _version
+            _deleted
+            _lastChangedAt
             createdAt
             updatedAt
           }
           nextToken
+          startedAt
         }
       }`;
     const gqlAPIServiceArguments: any = {};
@@ -2309,6 +2881,48 @@ export class APIService {
     )) as any;
     return <ListUsermenusQuery>response.data.listUsermenus;
   }
+  async SyncUsermenus(
+    filter?: ModelUsermenuFilterInput,
+    limit?: number,
+    nextToken?: string,
+    lastSync?: number
+  ): Promise<SyncUsermenusQuery> {
+    const statement = `query SyncUsermenus($filter: ModelUsermenuFilterInput, $limit: Int, $nextToken: String, $lastSync: AWSTimestamp) {
+        syncUsermenus(filter: $filter, limit: $limit, nextToken: $nextToken, lastSync: $lastSync) {
+          __typename
+          items {
+            __typename
+            id
+            name
+            menucode
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    if (lastSync) {
+      gqlAPIServiceArguments.lastSync = lastSync;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <SyncUsermenusQuery>response.data.syncUsermenus;
+  }
   async GetUser(id: string): Promise<GetUserQuery> {
     const statement = `query GetUser($id: ID!) {
         getUser(id: $id) {
@@ -2324,6 +2938,9 @@ export class APIService {
           menunamestring
           sectionID
           sectionname
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -2357,10 +2974,14 @@ export class APIService {
             menunamestring
             sectionID
             sectionname
+            _version
+            _deleted
+            _lastChangedAt
             createdAt
             updatedAt
           }
           nextToken
+          startedAt
         }
       }`;
     const gqlAPIServiceArguments: any = {};
@@ -2378,6 +2999,56 @@ export class APIService {
     )) as any;
     return <ListUsersQuery>response.data.listUsers;
   }
+  async SyncUsers(
+    filter?: ModelUserFilterInput,
+    limit?: number,
+    nextToken?: string,
+    lastSync?: number
+  ): Promise<SyncUsersQuery> {
+    const statement = `query SyncUsers($filter: ModelUserFilterInput, $limit: Int, $nextToken: String, $lastSync: AWSTimestamp) {
+        syncUsers(filter: $filter, limit: $limit, nextToken: $nextToken, lastSync: $lastSync) {
+          __typename
+          items {
+            __typename
+            id
+            firstname
+            lastname
+            mobileno
+            username
+            userpass
+            companyID
+            assignedmenuoptions
+            menunamestring
+            sectionID
+            sectionname
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    if (lastSync) {
+      gqlAPIServiceArguments.lastSync = lastSync;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <SyncUsersQuery>response.data.syncUsers;
+  }
   async GetCompany(id: string): Promise<GetCompanyQuery> {
     const statement = `query GetCompany($id: ID!) {
         getCompany(id: $id) {
@@ -2387,6 +3058,12 @@ export class APIService {
           registeredemail
           adminpass
           domainname
+          highsecpin
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
           CompanyUsers {
             __typename
             items {
@@ -2402,10 +3079,14 @@ export class APIService {
               menunamestring
               sectionID
               sectionname
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
           CompanySections {
             __typename
@@ -2414,14 +3095,15 @@ export class APIService {
               id
               name
               companyID
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
-          highsecpin
-          createdAt
-          updatedAt
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -2447,19 +3129,25 @@ export class APIService {
             registeredemail
             adminpass
             domainname
+            highsecpin
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
             CompanyUsers {
               __typename
               nextToken
+              startedAt
             }
             CompanySections {
               __typename
               nextToken
+              startedAt
             }
-            highsecpin
-            createdAt
-            updatedAt
           }
           nextToken
+          startedAt
         }
       }`;
     const gqlAPIServiceArguments: any = {};
@@ -2477,6 +3165,120 @@ export class APIService {
     )) as any;
     return <ListCompanysQuery>response.data.listCompanys;
   }
+  async CompanyByEmail(
+    registeredemail?: string,
+    sortDirection?: ModelSortDirection,
+    filter?: ModelCompanyFilterInput,
+    limit?: number,
+    nextToken?: string
+  ): Promise<CompanyByEmailQuery> {
+    const statement = `query CompanyByEmail($registeredemail: String, $sortDirection: ModelSortDirection, $filter: ModelCompanyFilterInput, $limit: Int, $nextToken: String) {
+        companyByEmail(registeredemail: $registeredemail, sortDirection: $sortDirection, filter: $filter, limit: $limit, nextToken: $nextToken) {
+          __typename
+          items {
+            __typename
+            id
+            name
+            registeredemail
+            adminpass
+            domainname
+            highsecpin
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+            CompanyUsers {
+              __typename
+              nextToken
+              startedAt
+            }
+            CompanySections {
+              __typename
+              nextToken
+              startedAt
+            }
+          }
+          nextToken
+          startedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (registeredemail) {
+      gqlAPIServiceArguments.registeredemail = registeredemail;
+    }
+    if (sortDirection) {
+      gqlAPIServiceArguments.sortDirection = sortDirection;
+    }
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <CompanyByEmailQuery>response.data.companyByEmail;
+  }
+  async SyncCompanies(
+    filter?: ModelCompanyFilterInput,
+    limit?: number,
+    nextToken?: string,
+    lastSync?: number
+  ): Promise<SyncCompaniesQuery> {
+    const statement = `query SyncCompanies($filter: ModelCompanyFilterInput, $limit: Int, $nextToken: String, $lastSync: AWSTimestamp) {
+        syncCompanies(filter: $filter, limit: $limit, nextToken: $nextToken, lastSync: $lastSync) {
+          __typename
+          items {
+            __typename
+            id
+            name
+            registeredemail
+            adminpass
+            domainname
+            highsecpin
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+            CompanyUsers {
+              __typename
+              nextToken
+              startedAt
+            }
+            CompanySections {
+              __typename
+              nextToken
+              startedAt
+            }
+          }
+          nextToken
+          startedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    if (lastSync) {
+      gqlAPIServiceArguments.lastSync = lastSync;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <SyncCompaniesQuery>response.data.syncCompanies;
+  }
   async GetRoom(id: string): Promise<GetRoomQuery> {
     const statement = `query GetRoom($id: ID!) {
         getRoom(id: $id) {
@@ -2491,6 +3293,9 @@ export class APIService {
           sectionname
           sensors
           sensorsasstring
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -2523,10 +3328,14 @@ export class APIService {
             sectionname
             sensors
             sensorsasstring
+            _version
+            _deleted
+            _lastChangedAt
             createdAt
             updatedAt
           }
           nextToken
+          startedAt
         }
       }`;
     const gqlAPIServiceArguments: any = {};
@@ -2544,12 +3353,67 @@ export class APIService {
     )) as any;
     return <ListRoomsQuery>response.data.listRooms;
   }
+  async SyncRooms(
+    filter?: ModelRoomFilterInput,
+    limit?: number,
+    nextToken?: string,
+    lastSync?: number
+  ): Promise<SyncRoomsQuery> {
+    const statement = `query SyncRooms($filter: ModelRoomFilterInput, $limit: Int, $nextToken: String, $lastSync: AWSTimestamp) {
+        syncRooms(filter: $filter, limit: $limit, nextToken: $nextToken, lastSync: $lastSync) {
+          __typename
+          items {
+            __typename
+            id
+            name
+            sectionID
+            temperaturemin
+            temperaturemax
+            currentavgtem
+            numfloors
+            sectionname
+            sensors
+            sensorsasstring
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    if (lastSync) {
+      gqlAPIServiceArguments.lastSync = lastSync;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <SyncRoomsQuery>response.data.syncRooms;
+  }
   async GetSection(id: string): Promise<GetSectionQuery> {
     const statement = `query GetSection($id: ID!) {
         getSection(id: $id) {
           __typename
           id
           name
+          companyID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
           SectionRooms {
             __typename
             items {
@@ -2564,14 +3428,15 @@ export class APIService {
               sectionname
               sensors
               sensorsasstring
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
-          companyID
-          createdAt
-          updatedAt
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -2594,15 +3459,20 @@ export class APIService {
             __typename
             id
             name
+            companyID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
             SectionRooms {
               __typename
               nextToken
+              startedAt
             }
-            companyID
-            createdAt
-            updatedAt
           }
           nextToken
+          startedAt
         }
       }`;
     const gqlAPIServiceArguments: any = {};
@@ -2620,45 +3490,36 @@ export class APIService {
     )) as any;
     return <ListSectionsQuery>response.data.listSections;
   }
-  async CompanyByEmail(
-    registeredemail?: string,
-    sortDirection?: ModelSortDirection,
-    filter?: ModelCompanyFilterInput,
+  async SyncSections(
+    filter?: ModelSectionFilterInput,
     limit?: number,
-    nextToken?: string
-  ): Promise<CompanyByEmailQuery> {
-    const statement = `query CompanyByEmail($registeredemail: String, $sortDirection: ModelSortDirection, $filter: ModelCompanyFilterInput, $limit: Int, $nextToken: String) {
-        companyByEmail(registeredemail: $registeredemail, sortDirection: $sortDirection, filter: $filter, limit: $limit, nextToken: $nextToken) {
+    nextToken?: string,
+    lastSync?: number
+  ): Promise<SyncSectionsQuery> {
+    const statement = `query SyncSections($filter: ModelSectionFilterInput, $limit: Int, $nextToken: String, $lastSync: AWSTimestamp) {
+        syncSections(filter: $filter, limit: $limit, nextToken: $nextToken, lastSync: $lastSync) {
           __typename
           items {
             __typename
             id
             name
-            registeredemail
-            adminpass
-            domainname
-            CompanyUsers {
-              __typename
-              nextToken
-            }
-            CompanySections {
-              __typename
-              nextToken
-            }
-            highsecpin
+            companyID
+            _version
+            _deleted
+            _lastChangedAt
             createdAt
             updatedAt
+            SectionRooms {
+              __typename
+              nextToken
+              startedAt
+            }
           }
           nextToken
+          startedAt
         }
       }`;
     const gqlAPIServiceArguments: any = {};
-    if (registeredemail) {
-      gqlAPIServiceArguments.registeredemail = registeredemail;
-    }
-    if (sortDirection) {
-      gqlAPIServiceArguments.sortDirection = sortDirection;
-    }
     if (filter) {
       gqlAPIServiceArguments.filter = filter;
     }
@@ -2668,10 +3529,13 @@ export class APIService {
     if (nextToken) {
       gqlAPIServiceArguments.nextToken = nextToken;
     }
+    if (lastSync) {
+      gqlAPIServiceArguments.lastSync = lastSync;
+    }
     const response = (await API.graphql(
       graphqlOperation(statement, gqlAPIServiceArguments)
     )) as any;
-    return <CompanyByEmailQuery>response.data.companyByEmail;
+    return <SyncSectionsQuery>response.data.syncSections;
   }
   OnCreateSensorListener: Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateSensor">>
@@ -2686,6 +3550,9 @@ export class APIService {
           companyID
           lastreadtemp
           lastreceivedon
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -2708,6 +3575,9 @@ export class APIService {
           companyID
           lastreadtemp
           lastreceivedon
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -2730,6 +3600,9 @@ export class APIService {
           companyID
           lastreadtemp
           lastreceivedon
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -2749,6 +3622,9 @@ export class APIService {
           id
           name
           menucode
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -2768,6 +3644,9 @@ export class APIService {
           id
           name
           menucode
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -2787,6 +3666,9 @@ export class APIService {
           id
           name
           menucode
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -2814,6 +3696,9 @@ export class APIService {
           menunamestring
           sectionID
           sectionname
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -2841,6 +3726,9 @@ export class APIService {
           menunamestring
           sectionID
           sectionname
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -2868,6 +3756,9 @@ export class APIService {
           menunamestring
           sectionID
           sectionname
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -2889,6 +3780,12 @@ export class APIService {
           registeredemail
           adminpass
           domainname
+          highsecpin
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
           CompanyUsers {
             __typename
             items {
@@ -2904,10 +3801,14 @@ export class APIService {
               menunamestring
               sectionID
               sectionname
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
           CompanySections {
             __typename
@@ -2916,14 +3817,15 @@ export class APIService {
               id
               name
               companyID
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
-          highsecpin
-          createdAt
-          updatedAt
         }
       }`
     )
@@ -2943,6 +3845,12 @@ export class APIService {
           registeredemail
           adminpass
           domainname
+          highsecpin
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
           CompanyUsers {
             __typename
             items {
@@ -2958,10 +3866,14 @@ export class APIService {
               menunamestring
               sectionID
               sectionname
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
           CompanySections {
             __typename
@@ -2970,14 +3882,15 @@ export class APIService {
               id
               name
               companyID
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
-          highsecpin
-          createdAt
-          updatedAt
         }
       }`
     )
@@ -2997,6 +3910,12 @@ export class APIService {
           registeredemail
           adminpass
           domainname
+          highsecpin
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
           CompanyUsers {
             __typename
             items {
@@ -3012,10 +3931,14 @@ export class APIService {
               menunamestring
               sectionID
               sectionname
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
           CompanySections {
             __typename
@@ -3024,14 +3947,15 @@ export class APIService {
               id
               name
               companyID
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
-          highsecpin
-          createdAt
-          updatedAt
         }
       }`
     )
@@ -3056,6 +3980,9 @@ export class APIService {
           sectionname
           sensors
           sensorsasstring
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -3082,6 +4009,9 @@ export class APIService {
           sectionname
           sensors
           sensorsasstring
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -3108,6 +4038,9 @@ export class APIService {
           sectionname
           sensors
           sensorsasstring
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -3126,6 +4059,12 @@ export class APIService {
           __typename
           id
           name
+          companyID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
           SectionRooms {
             __typename
             items {
@@ -3140,14 +4079,15 @@ export class APIService {
               sectionname
               sensors
               sensorsasstring
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
-          companyID
-          createdAt
-          updatedAt
         }
       }`
     )
@@ -3164,6 +4104,12 @@ export class APIService {
           __typename
           id
           name
+          companyID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
           SectionRooms {
             __typename
             items {
@@ -3178,14 +4124,15 @@ export class APIService {
               sectionname
               sensors
               sensorsasstring
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
-          companyID
-          createdAt
-          updatedAt
         }
       }`
     )
@@ -3202,6 +4149,12 @@ export class APIService {
           __typename
           id
           name
+          companyID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
           SectionRooms {
             __typename
             items {
@@ -3216,14 +4169,15 @@ export class APIService {
               sectionname
               sensors
               sensorsasstring
+              _version
+              _deleted
+              _lastChangedAt
               createdAt
               updatedAt
             }
             nextToken
+            startedAt
           }
-          companyID
-          createdAt
-          updatedAt
         }
       }`
     )

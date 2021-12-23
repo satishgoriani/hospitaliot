@@ -10,6 +10,9 @@ mutation CreateSensor(
     companyID
     lastreadtemp
     lastreceivedon
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -25,6 +28,9 @@ mutation UpdateSensor(
     companyID
     lastreadtemp
     lastreceivedon
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -40,6 +46,9 @@ mutation DeleteSensor(
     companyID
     lastreadtemp
     lastreceivedon
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -52,6 +61,9 @@ mutation CreateUsermenu(
     id
     name
     menucode
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -64,6 +76,9 @@ mutation UpdateUsermenu(
     id
     name
     menucode
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -76,6 +91,9 @@ mutation DeleteUsermenu(
     id
     name
     menucode
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -96,6 +114,9 @@ mutation CreateUser(
     menunamestring
     sectionID
     sectionname
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -116,6 +137,9 @@ mutation UpdateUser(
     menunamestring
     sectionID
     sectionname
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -136,6 +160,9 @@ mutation DeleteUser(
     menunamestring
     sectionID
     sectionname
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -150,6 +177,12 @@ mutation CreateCompany(
     registeredemail
     adminpass
     domainname
+    highsecpin
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
     CompanyUsers {
       items {
         id
@@ -163,24 +196,29 @@ mutation CreateCompany(
         menunamestring
         sectionID
         sectionname
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
     CompanySections {
       items {
         id
         name
         companyID
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
-    highsecpin
-    createdAt
-    updatedAt
   }
 }
 mutation UpdateCompany(
@@ -193,6 +231,12 @@ mutation UpdateCompany(
     registeredemail
     adminpass
     domainname
+    highsecpin
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
     CompanyUsers {
       items {
         id
@@ -206,24 +250,29 @@ mutation UpdateCompany(
         menunamestring
         sectionID
         sectionname
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
     CompanySections {
       items {
         id
         name
         companyID
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
-    highsecpin
-    createdAt
-    updatedAt
   }
 }
 mutation DeleteCompany(
@@ -236,6 +285,12 @@ mutation DeleteCompany(
     registeredemail
     adminpass
     domainname
+    highsecpin
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
     CompanyUsers {
       items {
         id
@@ -249,24 +304,29 @@ mutation DeleteCompany(
         menunamestring
         sectionID
         sectionname
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
     CompanySections {
       items {
         id
         name
         companyID
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
-    highsecpin
-    createdAt
-    updatedAt
   }
 }
 mutation CreateRoom(
@@ -284,6 +344,9 @@ mutation CreateRoom(
     sectionname
     sensors
     sensorsasstring
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -303,6 +366,9 @@ mutation UpdateRoom(
     sectionname
     sensors
     sensorsasstring
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -322,6 +388,9 @@ mutation DeleteRoom(
     sectionname
     sensors
     sensorsasstring
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -333,6 +402,12 @@ mutation CreateSection(
   createSection(input: $input, condition: $condition) {
     id
     name
+    companyID
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
     SectionRooms {
       items {
         id
@@ -345,14 +420,15 @@ mutation CreateSection(
         sectionname
         sensors
         sensorsasstring
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
-    companyID
-    createdAt
-    updatedAt
   }
 }
 mutation UpdateSection(
@@ -362,6 +438,12 @@ mutation UpdateSection(
   updateSection(input: $input, condition: $condition) {
     id
     name
+    companyID
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
     SectionRooms {
       items {
         id
@@ -374,14 +456,15 @@ mutation UpdateSection(
         sectionname
         sensors
         sensorsasstring
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
-    companyID
-    createdAt
-    updatedAt
   }
 }
 mutation DeleteSection(
@@ -391,6 +474,12 @@ mutation DeleteSection(
   deleteSection(input: $input, condition: $condition) {
     id
     name
+    companyID
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
     SectionRooms {
       items {
         id
@@ -403,13 +492,14 @@ mutation DeleteSection(
         sectionname
         sensors
         sensorsasstring
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
-    companyID
-    createdAt
-    updatedAt
   }
 }

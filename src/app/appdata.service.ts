@@ -7,13 +7,13 @@ import { Constants } from './constants';
 })
 export class AppdataService {
 
-  sectionlist: Section[];
+  sectionlist: any[];
   userlist: User[];
   usermenulist: Usermenu[];
   roomlist: Room[];
   sensorlist: Sensor[];
 
-  company: Company; //Currently logged in company
+  company: any; //Currently logged in company
   isloggedin;
   crudobject: any;
   crudpurpose;
@@ -151,16 +151,17 @@ export class AppdataService {
 
     const sections = await this.apiService.ListSections();
 
-    /****** _deleted doeas not exist */
 
-    if (sections && sections.items) {
-       for (var section of sections.items) {
-         //if (!section._deleted) {
-           this.sectionlist.push(section);
-         //}
-       }
-    }
-
+      if (sections && sections.items) {
+         for (var sect of sections.items) {
+           if (!sect._deleted) {
+  
+             this.sectionlist.push(sect);
+           }
+         }
+      }
+  
+  
     this.sectionlist.sort((a: Section, b: Section) => (a.name) < (b.name) ? -1 : 1);
 
   }
@@ -270,11 +271,11 @@ export class AppdataService {
     const rooms = await this.apiService.ListRooms();
     if (rooms && rooms.items) {
       for (var room of rooms.items) {
-        // if (!room._deleted) {
-        //   room.sectionname = this.getSectionName(room.sectionID);
-        //   this.setSensorString(room);
-        //   this.roomlist.push(room);
-        // }
+         if (!room._deleted) {
+           room.sectionname = this.getSectionName(room.sectionID);
+           this.setSensorString(room);
+           this.roomlist.push(room);
+         }
       }
     }
 
@@ -285,12 +286,12 @@ export class AppdataService {
 
     const sensors = await this.apiService.ListSensors();
     if (sensors && sensors.items) {
-      // for (var sensor of sensors.items) {
-      //   if (!sensor._deleted) {
+       for (var sensor of sensors.items) {
+         if (!sensor._deleted) {
 
-      //     this.sensorlist.push(sensor);
-      //   }
-      // }
+           this.sensorlist.push(sensor);
+         }
+       }
     }
 
   }
@@ -299,9 +300,7 @@ export class AppdataService {
   async initAppData(){
     try{
       await this.initSections();
-
       await this.initUserMenus();
-
       await this.initUsers();
       await this.initSensors();
 

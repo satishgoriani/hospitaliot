@@ -27,26 +27,26 @@ export class AppComponent {
               title: "Sensors",
               url: "/sensors",
               icon: "thermometer-outline"
-            },
+            }/*,
             {
               title: "Users",
               url: "/users",
               icon: "people-outline"
-            },
+            },*/
 
           ]
         },
-        {
+        /*{
           title: "Reports",
           url: "/reports",
           icon: "document-text-outline"
-        },
+        },*/
 
         {
           title: "Settings",
           url: "/setting",
           icon: "settings-outline"
-        },
+        }/*,
         {
           title: "Profile",
           url: "/profile",
@@ -56,7 +56,7 @@ export class AppComponent {
           title: "About",
           url: "/about",
           icon: "information-circle-outline"
-        },
+        }*/,
         {
           title: "Logout",
           url: "/",

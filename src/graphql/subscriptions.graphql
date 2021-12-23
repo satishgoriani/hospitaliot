@@ -7,6 +7,9 @@ subscription OnCreateSensor {
     companyID
     lastreadtemp
     lastreceivedon
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -19,6 +22,9 @@ subscription OnUpdateSensor {
     companyID
     lastreadtemp
     lastreceivedon
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -31,6 +37,9 @@ subscription OnDeleteSensor {
     companyID
     lastreadtemp
     lastreceivedon
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -40,6 +49,9 @@ subscription OnCreateUsermenu {
     id
     name
     menucode
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -49,6 +61,9 @@ subscription OnUpdateUsermenu {
     id
     name
     menucode
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -58,6 +73,9 @@ subscription OnDeleteUsermenu {
     id
     name
     menucode
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -75,6 +93,9 @@ subscription OnCreateUser {
     menunamestring
     sectionID
     sectionname
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -92,6 +113,9 @@ subscription OnUpdateUser {
     menunamestring
     sectionID
     sectionname
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -109,6 +133,9 @@ subscription OnDeleteUser {
     menunamestring
     sectionID
     sectionname
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -120,6 +147,12 @@ subscription OnCreateCompany {
     registeredemail
     adminpass
     domainname
+    highsecpin
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
     CompanyUsers {
       items {
         id
@@ -133,24 +166,29 @@ subscription OnCreateCompany {
         menunamestring
         sectionID
         sectionname
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
     CompanySections {
       items {
         id
         name
         companyID
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
-    highsecpin
-    createdAt
-    updatedAt
   }
 }
 subscription OnUpdateCompany {
@@ -160,6 +198,12 @@ subscription OnUpdateCompany {
     registeredemail
     adminpass
     domainname
+    highsecpin
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
     CompanyUsers {
       items {
         id
@@ -173,24 +217,29 @@ subscription OnUpdateCompany {
         menunamestring
         sectionID
         sectionname
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
     CompanySections {
       items {
         id
         name
         companyID
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
-    highsecpin
-    createdAt
-    updatedAt
   }
 }
 subscription OnDeleteCompany {
@@ -200,6 +249,12 @@ subscription OnDeleteCompany {
     registeredemail
     adminpass
     domainname
+    highsecpin
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
     CompanyUsers {
       items {
         id
@@ -213,24 +268,29 @@ subscription OnDeleteCompany {
         menunamestring
         sectionID
         sectionname
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
     CompanySections {
       items {
         id
         name
         companyID
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
-    highsecpin
-    createdAt
-    updatedAt
   }
 }
 subscription OnCreateRoom {
@@ -245,6 +305,9 @@ subscription OnCreateRoom {
     sectionname
     sensors
     sensorsasstring
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -261,6 +324,9 @@ subscription OnUpdateRoom {
     sectionname
     sensors
     sensorsasstring
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -277,6 +343,9 @@ subscription OnDeleteRoom {
     sectionname
     sensors
     sensorsasstring
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -285,6 +354,12 @@ subscription OnCreateSection {
   onCreateSection {
     id
     name
+    companyID
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
     SectionRooms {
       items {
         id
@@ -297,20 +372,27 @@ subscription OnCreateSection {
         sectionname
         sensors
         sensorsasstring
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
-    companyID
-    createdAt
-    updatedAt
   }
 }
 subscription OnUpdateSection {
   onUpdateSection {
     id
     name
+    companyID
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
     SectionRooms {
       items {
         id
@@ -323,20 +405,27 @@ subscription OnUpdateSection {
         sectionname
         sensors
         sensorsasstring
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
-    companyID
-    createdAt
-    updatedAt
   }
 }
 subscription OnDeleteSection {
   onDeleteSection {
     id
     name
+    companyID
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
     SectionRooms {
       items {
         id
@@ -349,13 +438,14 @@ subscription OnDeleteSection {
         sectionname
         sensors
         sensorsasstring
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
-    companyID
-    createdAt
-    updatedAt
   }
 }

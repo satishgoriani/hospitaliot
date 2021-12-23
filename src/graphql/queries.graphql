@@ -7,6 +7,9 @@ query GetSensor($id: ID!) {
     companyID
     lastreadtemp
     lastreceivedon
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -24,10 +27,43 @@ query ListSensors(
       companyID
       lastreadtemp
       lastreceivedon
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
     nextToken
+    startedAt
+  }
+}
+query SyncSensors(
+  $filter: ModelSensorFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncSensors(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      serialnumber
+      remarks
+      companyID
+      lastreadtemp
+      lastreceivedon
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+    nextToken
+    startedAt
   }
 }
 query GetUsermenu($id: ID!) {
@@ -35,6 +71,9 @@ query GetUsermenu($id: ID!) {
     id
     name
     menucode
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -49,10 +88,40 @@ query ListUsermenus(
       id
       name
       menucode
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
     nextToken
+    startedAt
+  }
+}
+query SyncUsermenus(
+  $filter: ModelUsermenuFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncUsermenus(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      name
+      menucode
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+    nextToken
+    startedAt
   }
 }
 query GetUser($id: ID!) {
@@ -68,6 +137,9 @@ query GetUser($id: ID!) {
     menunamestring
     sectionID
     sectionname
+    _version
+    _deleted
+    _lastChangedAt
     createdAt
     updatedAt
   }
@@ -90,10 +162,48 @@ query ListUsers(
       menunamestring
       sectionID
       sectionname
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
     nextToken
+    startedAt
+  }
+}
+query SyncUsers(
+  $filter: ModelUserFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncUsers(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      firstname
+      lastname
+      mobileno
+      username
+      userpass
+      companyID
+      assignedmenuoptions
+      menunamestring
+      sectionID
+      sectionname
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+    nextToken
+    startedAt
   }
 }
 query GetCompany($id: ID!) {
@@ -103,6 +213,12 @@ query GetCompany($id: ID!) {
     registeredemail
     adminpass
     domainname
+    highsecpin
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
     CompanyUsers {
       items {
         id
@@ -116,24 +232,29 @@ query GetCompany($id: ID!) {
         menunamestring
         sectionID
         sectionname
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
     CompanySections {
       items {
         id
         name
         companyID
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
     }
-    highsecpin
-    createdAt
-    updatedAt
   }
 }
 query ListCompanys(
@@ -148,101 +269,23 @@ query ListCompanys(
       registeredemail
       adminpass
       domainname
+      highsecpin
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
       CompanyUsers {
         nextToken
+        startedAt
       }
       CompanySections {
         nextToken
+        startedAt
       }
-      highsecpin
-      createdAt
-      updatedAt
     }
     nextToken
-  }
-}
-query GetRoom($id: ID!) {
-  getRoom(id: $id) {
-    id
-    name
-    sectionID
-    temperaturemin
-    temperaturemax
-    currentavgtem
-    numfloors
-    sectionname
-    sensors
-    sensorsasstring
-    createdAt
-    updatedAt
-  }
-}
-query ListRooms(
-  $filter: ModelRoomFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listRooms(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      name
-      sectionID
-      temperaturemin
-      temperaturemax
-      currentavgtem
-      numfloors
-      sectionname
-      sensors
-      sensorsasstring
-      createdAt
-      updatedAt
-    }
-    nextToken
-  }
-}
-query GetSection($id: ID!) {
-  getSection(id: $id) {
-    id
-    name
-    SectionRooms {
-      items {
-        id
-        name
-        sectionID
-        temperaturemin
-        temperaturemax
-        currentavgtem
-        numfloors
-        sectionname
-        sensors
-        sensorsasstring
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-    companyID
-    createdAt
-    updatedAt
-  }
-}
-query ListSections(
-  $filter: ModelSectionFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listSections(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      name
-      SectionRooms {
-        nextToken
-      }
-      companyID
-      createdAt
-      updatedAt
-    }
-    nextToken
+    startedAt
   }
 }
 query CompanyByEmail(
@@ -265,16 +308,225 @@ query CompanyByEmail(
       registeredemail
       adminpass
       domainname
+      highsecpin
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
       CompanyUsers {
         nextToken
+        startedAt
       }
       CompanySections {
         nextToken
+        startedAt
       }
+    }
+    nextToken
+    startedAt
+  }
+}
+query SyncCompanies(
+  $filter: ModelCompanyFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncCompanies(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      name
+      registeredemail
+      adminpass
+      domainname
       highsecpin
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      CompanyUsers {
+        nextToken
+        startedAt
+      }
+      CompanySections {
+        nextToken
+        startedAt
+      }
+    }
+    nextToken
+    startedAt
+  }
+}
+query GetRoom($id: ID!) {
+  getRoom(id: $id) {
+    id
+    name
+    sectionID
+    temperaturemin
+    temperaturemax
+    currentavgtem
+    numfloors
+    sectionname
+    sensors
+    sensorsasstring
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+query ListRooms(
+  $filter: ModelRoomFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listRooms(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      sectionID
+      temperaturemin
+      temperaturemax
+      currentavgtem
+      numfloors
+      sectionname
+      sensors
+      sensorsasstring
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
     nextToken
+    startedAt
+  }
+}
+query SyncRooms(
+  $filter: ModelRoomFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncRooms(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      name
+      sectionID
+      temperaturemin
+      temperaturemax
+      currentavgtem
+      numfloors
+      sectionname
+      sensors
+      sensorsasstring
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+    nextToken
+    startedAt
+  }
+}
+query GetSection($id: ID!) {
+  getSection(id: $id) {
+    id
+    name
+    companyID
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+    SectionRooms {
+      items {
+        id
+        name
+        sectionID
+        temperaturemin
+        temperaturemax
+        currentavgtem
+        numfloors
+        sectionname
+        sensors
+        sensorsasstring
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+}
+query ListSections(
+  $filter: ModelSectionFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listSections(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      companyID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      SectionRooms {
+        nextToken
+        startedAt
+      }
+    }
+    nextToken
+    startedAt
+  }
+}
+query SyncSections(
+  $filter: ModelSectionFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncSections(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      name
+      companyID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      SectionRooms {
+        nextToken
+        startedAt
+      }
+    }
+    nextToken
+    startedAt
   }
 }
