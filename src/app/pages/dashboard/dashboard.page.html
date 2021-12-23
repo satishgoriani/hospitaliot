@@ -41,7 +41,7 @@
   <div *ngIf="dataService.roomlist && dataService.roomlist.length > 0">
     <ion-grid class="ion-no-padding">
       <ion-row>
-        <ion-col size="6" class="ion-no-padding">
+        <ion-col size="6" class="ion-no-padding" *ngFor="let item of dataService.dashboardroomlist">
           <ion-card class="card-det" (click)="viewRoom(item)">
             <ion-card-content class="ion-no-padding ion-text-center">
               <ion-label class="head-lbl SmallBold"><span>OT</span> <span> : </span>1</ion-label>
