@@ -29,10 +29,15 @@ export class DashboardPage implements OnInit {
     this.menuCtrl.enable(false);
   }
 
+  /*
   filterlist = [
     { type: "All" }, { type: "Temp-High-alert" }, { type: "Temp-low-alert" }, { type: "Storage-Empty" },
     { type: "Storage < 50% occupied" }, { type: "Storage > 50% occupied" }, { type: "Dairy Products" },
     { type: "Frozen Foods" }, { type: "Grains" },
+  ]*/
+
+  filterlist = [
+    { type: "All" }, { type: "Temp-high" }, { type: "Temp-low" }, { type: "Humidity-high" },{ type: "Humidity-low" }
   ]
 
 
@@ -66,7 +71,7 @@ export class DashboardPage implements OnInit {
       }
     });
   }
-  
+
   ionViewWillEnter(){
     console.log('DASHBOARD INIT ** ENTER VIEW**');
     this.segmentChanged();
@@ -81,12 +86,12 @@ export class DashboardPage implements OnInit {
   }
 
   async addRoom() {
-    this.dataService.crudpurpose = Constants.CREATE;    
+    this.dataService.crudpurpose = Constants.CREATE;
     this._router.navigate(['/roomdetails']);
   }
 
   async segmentChanged() {
-    
+
     if(this.dataService.sectionlist)
       this.defaultsection = this.dataService.sectionlist[0].id;
 
@@ -98,7 +103,7 @@ export class DashboardPage implements OnInit {
 
   }
   refreshTimer;
-  
+
   async startRoomPolling(){
     try{
         console.log('|CHAMBER POLLING|');
@@ -122,7 +127,7 @@ export class DashboardPage implements OnInit {
 
   async viewRoom(room) {
     this.dataService.crudobject = this.dataService.getClone(room);
-    this._router.navigate(['/rooms']);    
+    this._router.navigate(['/rooms']);
   }
 
 }

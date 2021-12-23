@@ -51,7 +51,7 @@ export class SectordetailsPage implements OnInit {
     return true;
   }
 
-  async editSite() {
+  async editSection() {
     if (this.sectorobj.name && this.sectorobj.name.length > 0) {
 
       if (!this.checkDuplicate()) return;
@@ -65,19 +65,19 @@ export class SectordetailsPage implements OnInit {
       try {
         const ret = await this.apiService.UpdateSection(sectorData);
         this.dataService.updateSectionList(ret, Constants.EDIT);
-        this.alertService.displayToast('Site updated successfully', Constants.SUCCESS);
+        this.alertService.displayToast('Section updated successfully', Constants.SUCCESS);
       } catch (err) {
-        this.alertService.displayToast('Error updating site, please try again!', Constants.FAIL);
+        this.alertService.displayToast('Error updating section, please try again!', Constants.FAIL);
         return;
       }
       this.closeDialog();
     } else {
-      this.alertService.displayToast('Please enter site name', Constants.WARNING);
+      this.alertService.displayToast('Please enter section name', Constants.WARNING);
     }
 
   }
 
-  async addSite() {
+  async addSection() {
     if (this.sectorobj.name && this.sectorobj.name.trim().length > 0) {
 
       if (!this.checkDuplicate()) return;
@@ -86,27 +86,29 @@ export class SectordetailsPage implements OnInit {
       sectorData.companyID = this.sectorobj.companyID;
       sectorData.name = this.sectorobj.name;
 
+      console.log('Section values' + sectorData);
 
       try {
         const ret = await this.apiService.CreateSection(sectorData);
         this.dataService.updateSectionList(ret, Constants.CREATE);
-        this.alertService.displayToast('Site added successfully', Constants.SUCCESS);
+        console.log('Section obj' + ret);
+        this.alertService.displayToast('Section added successfully', Constants.SUCCESS);
       } catch (err) {
-        this.alertService.displayToast('Error adding site, please try again!', Constants.FAIL);
+        this.alertService.displayToast('Error adding section, please try again!', Constants.FAIL);
         return;
       }
       this.closeDialog();
     } else {
-      this.alertService.displayToast('Please enter site name', Constants.WARNING);
+      this.alertService.displayToast('Please enter section name', Constants.WARNING);
     }
 
   }
 
   public save() {
     if (this.dataService.crudpurpose == Constants.CREATE) {
-      this.addSite();
+      this.addSection();
     } else {
-      this.editSite();
+      this.editSection();
     }
   }
 

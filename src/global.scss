@@ -59,7 +59,7 @@ ion-header {
   border: none !important;
 }
 
-.fab-btn {   
+.fab-btn {
     ion-icon {
         height: 35px;
         width: 35px;
@@ -257,13 +257,4 @@ ion-header {
     --ion-color-shade: var(--ion-color-accent-shade);
     --ion-color-tint: var(--ion-color-accent-tint);
   }
-
-  .ion-color-btn {
-	--ion-color-base: var(--ion-color-btn);
-	--ion-color-base-rgb: var(--ion-color-btn-rgb);
-	--ion-color-contrast: var(--ion-color-btn-contrast);
-	--ion-color-contrast-rgb: var(--ion-color-btn-contrast-rgb);
-	--ion-color-shade: var(--ion-color-btn-shade);
-	--ion-color-tint: var(--ion-color-btn-tint);
-}
 

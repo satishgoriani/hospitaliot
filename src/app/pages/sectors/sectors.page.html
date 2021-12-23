@@ -1,5 +1,5 @@
 <ion-header class="ion-no-border">
-  <app-holatoolbar title="Sectors"></app-holatoolbar>
+  <app-holatoolbar title="Sections"></app-holatoolbar>
 </ion-header>
 
 <ion-content class="ion-content-grey">
@@ -7,7 +7,7 @@
   <ion-searchbar class="crudsearchbar ion-no-padding" [(ngModel)]="strsearch"></ion-searchbar>
 
   <div *ngIf="dataService.sectionlist.length == 0" class="myphoto" style="top: 50%; position: absolute; left: 50%;transform: translate(-50%, -50%);">
-    <ion-text color="light">click '+' to add Sectors</ion-text>
+    <ion-text color="light">click '+' to add Section</ion-text>
   </div>
 
   <div *ngIf="dataService.sectionlist && dataService.sectionlist.length > 0">
@@ -25,7 +25,7 @@
       </ion-row>
     </ion-item>
   </div>
-  
+
 
   <div style="min-height: 80px !important;">&nbsp;</div>
 

@@ -5,12 +5,12 @@
   <div>
 
     <ion-item>
-      <ion-label position="floating">operation Theater No</ion-label>
+      <ion-label position="floating">Room Number</ion-label>
       <ion-input required=true placeholder="001" [(ngModel)]="roomobj.name"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label>Select Section</ion-label>
+      <ion-label>Section</ion-label>
       <ion-select mode="md" [(ngModel)]="roomobj.sectionID">
         <ion-select-option *ngFor="let item of dataService.sectionlist;" value="{{item.id}}">{{item.name}}
         </ion-select-option>
@@ -71,7 +71,7 @@
         <ion-button class="cancel-btn ion-no-margin" color="cancel" type="submit" expand="block" (click)="closeDialog()">Cancel</ion-button>
       </ion-col>
       <ion-col class="ion-no-padding">
-        <ion-button class="save-btn ion-no-margin"  color="btn" type="submit" expand="block" (click)="save()">Save</ion-button>
+        <ion-button class="save-btn ion-no-margin"  color="primary" type="submit" expand="block" (click)="save()">Save</ion-button>
       </ion-col>
     </ion-row>
   </div>

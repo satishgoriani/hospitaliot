@@ -5,10 +5,10 @@
 <ion-row class="selectfilter">
   <ion-col size="6" class="noPad">
     <ion-item lines="none">
-      <ion-label position="floating">Select Section</ion-label>
+      <ion-label position="floating">Section</ion-label>
       <ion-select mode="md" interface="popover" [(ngModel)]="dataService.dashboardsectionid"
         value="dataService.dashboardsectionid" (ionChange)="segmentChanged()">
-        <ion-select-option *ngFor="let item of dataService.sectionList;" value="{{item.id}}">{{item.name}}
+        <ion-select-option *ngFor="let item of dataService.sectionlist;" value="{{item.id}}">{{item.name}}
         </ion-select-option>
       </ion-select>
     </ion-item>
@@ -51,14 +51,14 @@
                     <ion-badge *ngIf="item.currentavgtem && item.currentavgtem >=  item.temperaturemin &&  item.currentavgtem <=  item.temperaturemax " class="tempbadge normaltemp ion-no padding ">{{item.currentavgtem ? item.currentavgtem : 5}}°C</ion-badge>
                     <ion-badge *ngIf="item.currentavgtem && item.currentavgtem <  item.temperaturemin" class="tempbadge lowtemp ion-no padding ">{{item.currentavgtem ? item.currentavgtem : 5}}°C</ion-badge>
                     <ion-badge *ngIf="item.currentavgtem && item.currentavgtem >  item.temperaturemax" class="tempbadge hightemp ion-no padding">{{item.currentavgtem ? item.currentavgtem : 5}}°C</ion-badge>
-  
+
                     <!-- <ion-badge class="tempbadge normaltemp ion-no padding ">5°C</ion-badge> -->
                   </ion-col>
                   <ion-col class="humidity-col  ion-text-center">
                     <ion-badge *ngIf="item.currentavgtem && item.currentavgtem >=  item.temperaturemin &&  item.currentavgtem <=  item.temperaturemax " class="humiditybadge normaltemp ion-no padding ">{{item.currentavgtem ? item.currentavgtem : 5}}°C</ion-badge>
                     <ion-badge *ngIf="item.currentavgtem && item.currentavgtem <  item.temperaturemin" class="humiditybadge lowtemp ion-no padding ">{{item.currentavgtem ? item.currentavgtem : 5}}°C</ion-badge>
                     <ion-badge *ngIf="item.currentavgtem && item.currentavgtem >  item.temperaturemax" class="humiditybadge hightemp ion-no padding">{{item.currentavgtem ? item.currentavgtem : 5}}°C</ion-badge>
-            
+
                     <!-- <ion-badge class="humiditybadge hightemp ion-no padding">12%</ion-badge> -->
                   </ion-col>
                 </ion-row>

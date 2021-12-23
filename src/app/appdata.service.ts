@@ -153,13 +153,13 @@ export class AppdataService {
 
     /****** _deleted doeas not exist */
 
-    // if (sections && sections.items) {
-    //   for (var section of sections.items) {
-    //     if (!section._deleted) { 
-    //       this.sectionlist.push(section);
-    //     }
-    //   }
-    // }
+    if (sections && sections.items) {
+       for (var section of sections.items) {
+         //if (!section._deleted) {
+           this.sectionlist.push(section);
+         //}
+       }
+    }
 
     this.sectionlist.sort((a: Section, b: Section) => (a.name) < (b.name) ? -1 : 1);
 
@@ -270,7 +270,7 @@ export class AppdataService {
     const rooms = await this.apiService.ListRooms();
     if (rooms && rooms.items) {
       for (var room of rooms.items) {
-        // if (!room._deleted) {          
+        // if (!room._deleted) {
         //   room.sectionname = this.getSectionName(room.sectionID);
         //   this.setSensorString(room);
         //   this.roomlist.push(room);
@@ -295,16 +295,16 @@ export class AppdataService {
 
   }
 
-  
+
   async initAppData(){
     try{
       await this.initSections();
-      
+
       await this.initUserMenus();
 
       await this.initUsers();
       await this.initSensors();
-      
+
       await this.initRooms();
       return true;
     } catch (err) {

@@ -41,6 +41,7 @@ export class SectorsPage implements OnInit {
   async openForm(){
     let root = document.documentElement;
     root.style.setProperty('--crud-form-height', this.dialogheight + 'px');
+    //console.log('Dialog height ' + this.dialogheight);
 
     const modal = await this.modalController.create({
       component: SectordetailsPage,
@@ -66,12 +67,12 @@ async confirmDelete(sector){
   this.secobj = {} as Section;
   this.secobj = <Section> this.dataService.getClone(sector);
 
-  const headerstr = 'Delete Site';
-  const messagestr = 'Do you want to delete site: ' + this.secobj.name + '?';
+  const headerstr = 'Delete Section';
+  const messagestr = 'Do you want to delete section: ' + this.secobj.name + '?';
 
   const isconfirmed = await this.alertService.confirmDelete(headerstr,messagestr);
   if (isconfirmed){
-    //console.log('Deleting site...');
+    //console.log('Deleting Section...');
     this.deleteSector();
   }
 }
@@ -82,18 +83,18 @@ async deleteSector(){
       sectorData.id = this.secobj.id;
       //sectorData._version = this.secobj._version;
 
-     
+
       try{
         const ret = await this.apiService.DeleteSection(sectorData);
         //console.log('Inside try-->', ret);
         this.dataService.updateSectionList(ret,Constants.DELETE);
-        this.alertService.displayToast('Site deleted successfully',Constants.SUCCESS)
+        this.alertService.displayToast('Section deleted successfully',Constants.SUCCESS)
       }catch(err){
-        this.alertService.displayToast('Error deleting the site, please try again!',Constants.FAIL);
+        this.alertService.displayToast('Error deleting the Section, please try again!',Constants.FAIL);
         return;
       }
   }else{
-    console.log('Invalid site id...');
+    console.log('Invalid Section id...');
   }
 }
 

@@ -19,9 +19,9 @@ export class AppComponent {
           icon: "business-outline",
           children: [
             {
-              title: "Sectors",
+              title: "Sections",
               url: "/sectors",
-              icon: "grid-outline"
+              icon: "trail-sign-outline"
             },
             {
               title: "Sensors",
@@ -41,7 +41,7 @@ export class AppComponent {
           url: "/reports",
           icon: "document-text-outline"
         },
-       
+
         {
           title: "Settings",
           url: "/setting",

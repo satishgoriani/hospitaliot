@@ -1,10 +1,10 @@
 <ion-header>
-  <app-holamodalbar title="{{operation}} Sector"></app-holamodalbar>
+  <app-holamodalbar title="{{operation}} Section"></app-holamodalbar>
 </ion-header>
 
 <ion-content>
   <div class="item-div">
-    <ion-label>Enter Sector Name</ion-label>
+    <ion-label>Enter Section Name</ion-label>
     <ion-item lines="none">
       <ion-input type="num" [(ngModel)]="sectorobj.name" placeholder="ex.Operation Theater"></ion-input>
     </ion-item>
@@ -18,7 +18,7 @@
 
       </ion-col>
       <ion-col no-padding>
-        <ion-button class="save-btn ion-margin-horizontal ion-padding-end"  color="btn" type="submit" expand="block" (click)="save()">
+        <ion-button class="save-btn ion-margin-horizontal ion-padding-end"  color="primary" type="submit" expand="block" (click)="save()">
          Save
         </ion-button>
 
