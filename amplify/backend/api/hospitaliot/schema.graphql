@@ -57,4 +57,4 @@ type Section @model @auth(rules: [{allow: public}]) @key(name: "byCompany", fiel
   SectionRooms: [Room] @connection(keyName: "bySection", fields: ["id"])
   companyID: ID
 }
- 
+  

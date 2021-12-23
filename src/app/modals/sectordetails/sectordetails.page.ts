@@ -60,7 +60,7 @@ export class SectordetailsPage implements OnInit {
       sectorData.id = this.sectorobj.id;
       sectorData.companyID = this.sectorobj.companyID;
       sectorData.name = this.sectorobj.name;
-      //sectorData._version = this.sectorobj._version;
+      sectorData._version = this.sectorobj._version;
 
       try {
         const ret = await this.apiService.UpdateSection(sectorData);

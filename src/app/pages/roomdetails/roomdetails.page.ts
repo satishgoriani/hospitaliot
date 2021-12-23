@@ -60,12 +60,12 @@ export class RoomdetailsPage implements OnInit {
       const roomData = {} as UpdateRoomInput;
       roomData.id = this.roomobj.id;
       roomData.sectionID = this.roomobj.sectionID;
-      roomData.name = this.roomobj.name;     
+      roomData.name = this.roomobj.name;
       roomData.temperaturemin = this.roomobj.temperaturemin;
-      roomData.temperaturemax = this.roomobj.temperaturemax;     
+      roomData.temperaturemax = this.roomobj.temperaturemax;
       roomData.numfloors = this.roomobj.numfloors;
       roomData.sensors = this.roomobj.sensors;
-      // roomData._version = this.roomobj._version;
+      roomData._version = this.roomobj._version;
 
       try {
         const ret = await this.apiService.UpdateRoom(roomData);
@@ -118,9 +118,9 @@ export class RoomdetailsPage implements OnInit {
     if (this.validateChamber()) {
       const roomData = {} as CreateRoomInput;
       roomData.sectionID = this.roomobj.sectionID;
-      roomData.name = this.roomobj.name;      
+      roomData.name = this.roomobj.name;
       roomData.temperaturemin = this.roomobj.temperaturemin;
-      roomData.temperaturemax = this.roomobj.temperaturemax;     
+      roomData.temperaturemax = this.roomobj.temperaturemax;
       roomData.numfloors = this.roomobj.numfloors;
       roomData.sensors = this.roomobj.sensors;
 

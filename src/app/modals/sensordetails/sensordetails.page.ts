@@ -15,7 +15,7 @@ export class SensordetailsPage implements OnInit {
 
   operation;
   sensorobj : Sensor;
-  
+
   constructor(
     private _router : Router,
             public alertService : AlertService,
@@ -41,7 +41,7 @@ export class SensordetailsPage implements OnInit {
     for(var sensor of this.dataService.sensorlist){
       if(sensor.id != this.sensorobj.id && sensor.serialnumber.trim().toLowerCase() == this.sensorobj.serialnumber.trim().toLowerCase()){
         this.alertService.displayToast('Sensor serial number already exists',Constants.WARNING);
-        return false; 
+        return false;
       }
     }
     return true;
@@ -63,7 +63,7 @@ export class SensordetailsPage implements OnInit {
       sensorData.companyID = this.sensorobj.companyID;
       sensorData.remarks = this.sensorobj.remarks;
       sensorData.serialnumber = this.sensorobj.serialnumber;
-      //sensorData._version = this.sensorobj._version;
+      sensorData._version = this.sensorobj._version;
 
       try{
         const ret = await this.apiService.UpdateSensor(sensorData);
@@ -78,7 +78,7 @@ export class SensordetailsPage implements OnInit {
 
  }
 
- 
+
  validateSensor(){
   if(!this.sensorobj.serialnumber || this.sensorobj.serialnumber.trim().length == 0){
     this.alertService.displayToast('Please enter serial number',Constants.WARNING);
@@ -89,7 +89,7 @@ export class SensordetailsPage implements OnInit {
     this.alertService.displayToast('Please enter sensor details',Constants.WARNING);
     return false;
   }
-  
+
   return this.checkDuplicate();
 }
 

@@ -21,15 +21,15 @@
   }
 
 .tempbadge {
-    font-size: medium;
-    padding: 5px 15px 5px 15px;
-    border-radius: 20px;
+    font-size: small;
+    padding: 10px 10px 10px 10px;
+    border-radius: 15px;
 }
 
 .humiditybadge {
-    font-size: medium;
-    padding: 5px 15px 5px 15px;
-    border-radius: 20px;
+    font-size: small;
+    padding: 10px 10px 10px 10px;
+    border-radius: 15px;
 }
 
 .temp-col {
@@ -51,6 +51,15 @@
 
 .hightemp {
     background: #f0888b;
+}
+
+.greenDot {
+  color: green;
+  height: 12px !important;
+  width: 12px !important;
+  margin-top: 0px !important;
+  margin-left: 0px !important;
+  vertical-align: text-bottom;
 }
 
 .card-det {
